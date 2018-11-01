@@ -20,7 +20,9 @@
           <v-card-title primary-title>
             <div>
               <h3 class="headline mb-0">地球文明</h3>
-              <h4>总人口：1110</h4>
+              <h4>当代总人口：1110（人）</h4>
+              <h4>已更迭人类代数：100（代）</h4>
+              <h4>下一代人类到来时间剩余：{{timeCountdown}}（秒）</h4>
             </div>
           </v-card-title>
           <v-card-text>{{ tip }}</v-card-text>
@@ -126,11 +128,21 @@ export default {
     SelectExpend
   },
   data: () => ({
-    tip:`文明的进程会不可避免的产生贫富差距，消除贫富差距，并延续文明千万代，是你的终极目标`,
+    timeCountdown: 30,
+    tip: `文明的进程会不可避免的产生贫富差距，消除贫富差距，并延续文明千万代，是你的终极目标`,
     rich: `处于社会金字塔顶，通过剥削下层阶级获取财富`,
     middle: `处于中层，由穷人晋升`,
     poor: `处于社会底层`
-  })
+  }),
+  created: function() {
+    let self = this;
+    setInterval(function() {
+      self.timeCountdown--;
+      if (self.timeCountdown < 0) {
+        self.timeCountdown = 30;
+      }
+    }, 1000);
+  }
 };
 </script>
 
