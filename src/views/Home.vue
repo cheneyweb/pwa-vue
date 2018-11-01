@@ -3,33 +3,44 @@
     <v-layout row wrap>
       <v-flex xs12>
         <v-card>
-          <v-img
-          class="white--text"
-            src="http://img.xserver.top/mycivilization_desert.jpg"
-            aspect-ratio="3.75"
-            max-height="100"
-          >
-          <v-container fill-height fluid>
-            <v-layout fill-height>
-              <v-flex xs12 align-end flexbox>
-                <span class="headline">文明的希望是不断的繁衍迭代</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-          </v-img>
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">地球文明</h3>
-              <h4>当代总人口：<animate-number from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number>（人）</h4>
-              <h4>已更迭人类代数：<animate-number from="0" to="100" duration="2000" easing="easeInQuad"></animate-number>（代）</h4>
-              <h4>下一代人类到来时间剩余：{{timeCountdown}}（秒）</h4>
-            </div>
-          </v-card-title>
-          <v-card-text>{{ tip }}</v-card-text>
-          <v-card-actions>
-            <v-btn flat color="orange">人口问题</v-btn>
-            <v-btn flat color="orange">贫富差距</v-btn>
-          </v-card-actions>
+          <v-layout wrap>
+            <v-flex >
+              <v-img
+              class="white--text"
+                src="http://img.xserver.top/mycivilization_desert.png"
+                aspect-ratio="3.75"
+                max-height="100"
+              >
+              <v-container fill-height fluid>
+                <v-layout fill-height>
+                  <v-flex xs12 align-end flexbox>
+                    <span class="headline">文明的希望是不断繁衍迭代</span>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+              </v-img>
+              <v-card-title primary-title>
+                <div>
+                  <h3 class="headline mb-0">地球文明</h3>
+                  <h4>已更迭人类代数：<animate-number from="0" to="100" duration="2000" easing="easeInQuad"></animate-number></h4>
+                  <h4>当代人类总人口：<animate-number from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number></h4>
+                  <h4>当代人类总资产：$<animate-number from="0" to="2000" duration="2000" easing="easeInQuad"></animate-number></h4>
+                  <h4>下一代人类到来时间剩余：{{timeCountdown}}（秒）</h4>
+                </div>
+              </v-card-title>
+              <v-card-text>{{ tip }}</v-card-text>
+              <v-card-actions>
+                <v-btn flat color="orange">人口问题</v-btn>
+                <v-btn flat color="orange">贫富差距</v-btn>
+              </v-card-actions>
+            </v-flex>
+            <v-flex>
+              <canvas id="chart1" width="300" height="300"></canvas>
+            </v-flex>
+            <v-flex>
+              <canvas id="chart2" width="300" height="300"></canvas>
+            </v-flex>
+          </v-layout>
         </v-card>
       </v-flex>
       <v-flex d-flex xs12 sm4 child-flex>
@@ -52,6 +63,7 @@
             <div>
               <h3 class="headline mb-0">穷人</h3>
               <h4>人口：<animate-number from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></h4>
+              <h4>资产：$<animate-number from="0" to="0" duration="2000" easing="easeInQuad"></animate-number></h4>
             </div>
           </v-card-title>
           <v-card-text>{{ poor }}</v-card-text>
@@ -72,6 +84,7 @@
             <div>
               <h3 class="headline mb-0">中产</h3>
               <h4>人口：<animate-number from="0" to="100" duration="2000" easing="easeInQuad"></animate-number></h4>
+              <h4>资产：$<animate-number from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></h4>
             </div>
           </v-card-title>
           <v-card-text>{{ middle }}</v-card-text>
@@ -92,11 +105,12 @@
             <div>
               <h3 class="headline mb-0">富人</h3>
               <h4>人口：<animate-number from="0" to="10" duration="2000" easing="easeInQuad"></animate-number></h4>
+              <h4>资产：$<animate-number from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></h4>
             </div>
           </v-card-title>
           <v-card-text>{{ rich }}</v-card-text>
           <v-card-actions>
-            <v-btn flat color="orange">详情</v-btn>
+            <v-btn flat color="orange">人口问题</v-btn>
             <v-btn flat color="orange">贫富差距</v-btn>
           </v-card-actions>
         </v-card>
@@ -123,6 +137,9 @@
 import SliderTax from "../components/SliderTax";
 import SelectExpend from "../components/SelectExpend";
 import NumberGrow from "../components/NumberGrow";
+import F2 from "@antv/f2";
+F2.track(false);
+
 export default {
   components: {
     SliderTax,
@@ -144,6 +161,143 @@ export default {
         self.timeCountdown = 30;
       }
     }, 1000);
+  },
+  mounted: function() {
+    this.chart1();
+    this.chart2();
+  },
+  methods: {
+    chart1: () => {
+      // 自定义线图变更动画
+      F2.Animate.registerAnimation("lineUpdate", function(
+        updateShape,
+        animateCfg
+      ) {
+        var cacheShape = updateShape.get("cacheShape"); // 该动画 shape 的前一个状态
+        var cacheAttrs = cacheShape.attrs; // 上一个 shape 属性
+        var oldPoints = cacheAttrs.points; // 上一个状态的关键点
+        var newPoints = updateShape.attr("points"); // 当前 shape 的关键点
+
+        var oldLength = oldPoints.length;
+        var newLength = newPoints.length;
+        var deltaLength = newLength - oldLength;
+
+        var lastPoint = newPoints[newPoints.length - 1];
+        for (var i = 0; i < deltaLength; i++) {
+          oldPoints.push(lastPoint);
+        }
+
+        updateShape.attr(cacheAttrs);
+        updateShape.animate().to({
+          attrs: {
+            points: newPoints
+          },
+          duration: 800,
+          easing: animateCfg.easing
+        });
+      });
+
+      var data = [];
+      // 添加数据，模拟数据，可以指定当前时间的偏移的秒
+      function getRecord(offset) {
+        offset = offset || 0;
+        return {
+          time: new Date().getTime() + offset * 1000,
+          value: Math.random() + 10
+        };
+      }
+
+      data.push(getRecord(-2));
+      data.push(getRecord(-1));
+      data.push(getRecord());
+
+      var chart = new F2.Chart({
+        id: "chart1",
+        pixelRatio: window.devicePixelRatio
+      });
+
+      var defs = {
+        time: {
+          type: "timeCat",
+          mask: "HH:mm:ss",
+          range: [0, 1]
+        },
+        value: {
+          tickCount: 5,
+          min: 8
+        }
+      };
+      chart.source(data, defs);
+      chart.axis("time", {
+        label: function label(text, index, total) {
+          var textCfg = {
+            text: ""
+          };
+          if (index === 0) {
+            textCfg.textAlign = "left";
+            textCfg.text = text;
+          } else if (index === total - 1) {
+            textCfg.textAlign = "right";
+            textCfg.text = text;
+          }
+          return textCfg;
+        }
+      });
+
+      chart
+        .line()
+        .position("time*value")
+        .shape("smooth")
+        .animate({
+          update: {
+            animation: "lineUpdate"
+          }
+        });
+
+      chart.render();
+
+      setInterval(function() {
+        data.push(getRecord());
+        chart.changeData(data);
+      }, 1000);
+    },
+    chart2: () => {
+      var data = [
+        {
+          year: "穷人",
+          sales: 1000
+        },
+        {
+          year: "中产",
+          sales: 100
+        },
+        {
+          year: "富人",
+          sales: 10
+        }
+      ];
+      var chart = new F2.Chart({
+        id: "chart2",
+        pixelRatio: window.devicePixelRatio
+      });
+
+      chart.source(data, {
+        sales: {
+          tickCount: 5
+        }
+      });
+      chart.tooltip({
+        showItemMarker: false,
+        onShow: function onShow(ev) {
+          var items = ev.items;
+          items[0].name = null;
+          items[0].name = items[0].title;
+          items[0].value = items[0].value;
+        }
+      });
+      chart.interval().position("year*sales");
+      chart.render();
+    }
   }
 };
 </script>
