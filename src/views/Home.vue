@@ -20,8 +20,8 @@
           <v-card-title primary-title>
             <div>
               <h3 class="headline mb-0">地球文明</h3>
-              <h4>当代总人口：1110（人）</h4>
-              <h4>已更迭人类代数：100（代）</h4>
+              <h4>当代总人口：<animate-number from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number>（人）</h4>
+              <h4>已更迭人类代数：<animate-number from="0" to="100" duration="2000" easing="easeInQuad"></animate-number>（代）</h4>
               <h4>下一代人类到来时间剩余：{{timeCountdown}}（秒）</h4>
             </div>
           </v-card-title>
@@ -51,7 +51,7 @@
           <v-card-title primary-title>
             <div>
               <h3 class="headline mb-0">穷人</h3>
-              <h4>人口：1000</h4>
+              <h4>人口：<animate-number from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></h4>
             </div>
           </v-card-title>
           <v-card-text>{{ poor }}</v-card-text>
@@ -71,7 +71,7 @@
           <v-card-title primary-title>
             <div>
               <h3 class="headline mb-0">中产</h3>
-              <h4>人口：100</h4>
+              <h4>人口：<animate-number from="0" to="100" duration="2000" easing="easeInQuad"></animate-number></h4>
             </div>
           </v-card-title>
           <v-card-text>{{ middle }}</v-card-text>
@@ -91,7 +91,7 @@
           <v-card-title primary-title>
             <div>
               <h3 class="headline mb-0">富人</h3>
-              <h4>人口：10</h4>
+              <h4>人口：<animate-number from="0" to="10" duration="2000" easing="easeInQuad"></animate-number></h4>
             </div>
           </v-card-title>
           <v-card-text>{{ rich }}</v-card-text>
@@ -122,10 +122,12 @@
 <script>
 import SliderTax from "../components/SliderTax";
 import SelectExpend from "../components/SelectExpend";
+import NumberGrow from "../components/NumberGrow";
 export default {
   components: {
     SliderTax,
-    SelectExpend
+    SelectExpend,
+    NumberGrow
   },
   data: () => ({
     timeCountdown: 30,
