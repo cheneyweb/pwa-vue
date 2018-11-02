@@ -178,7 +178,7 @@ export default {
       self.timeCountdown--;
       if (self.timeCountdown < 0) {
         for (let i = 0; i < 9; i++) {
-          self.$refs[`num${i}`].start();
+          self.$refs[`num${i}`] ? self.$refs[`num${i}`].start() : null;
         }
         self.timeCountdown = 30;
       }
