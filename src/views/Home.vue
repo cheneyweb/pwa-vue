@@ -41,9 +41,9 @@
                 </v-layout>
                 <div>
                   <h3 class="headline">地球文明</h3>
-                  <h4>已更迭人类代数：<animate-number from="0" to="100" duration="2000" easing="easeInQuad"></animate-number></h4>
-                  <h4>当代人类总人口：<animate-number from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number></h4>
-                  <h4>当代人类总资产：$<animate-number from="0" to="2000" duration="2000" easing="easeInQuad"></animate-number></h4>
+                  <h4>已更迭人类代数：<animate-number ref="num0" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number></h4>
+                  <h4>当代人类总人口：<animate-number ref="num1" from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number></h4>
+                  <h4>当代人类总资产：$<animate-number ref="num2" from="0" to="2000" duration="2000" easing="easeInQuad"></animate-number></h4>
                   <h4>下一代人类到来时间剩余：{{timeCountdown}}（秒）</h4>
                 </div>
               </v-card-title>
@@ -81,8 +81,8 @@
           <v-card-title primary-title>
             <div>
               <h3 class="headline mb-0">穷人</h3>
-              <h4>人口：<animate-number from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></h4>
-              <h4>资产：$<animate-number from="0" to="0" duration="2000" easing="easeInQuad"></animate-number></h4>
+              <h4>人口：<animate-number ref="num3" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></h4>
+              <h4>资产：$<animate-number ref="num4" from="0" to="0" duration="2000" easing="easeInQuad"></animate-number></h4>
             </div>
           </v-card-title>
           <v-card-text>{{ poor }}</v-card-text>
@@ -102,8 +102,8 @@
           <v-card-title primary-title>
             <div>
               <h3 class="headline mb-0">中产</h3>
-              <h4>人口：<animate-number from="0" to="100" duration="2000" easing="easeInQuad"></animate-number></h4>
-              <h4>资产：$<animate-number from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></h4>
+              <h4>人口：<animate-number ref="num5" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number></h4>
+              <h4>资产：$<animate-number ref="num6" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></h4>
             </div>
           </v-card-title>
           <v-card-text>{{ middle }}</v-card-text>
@@ -123,8 +123,8 @@
           <v-card-title primary-title>
             <div>
               <h3 class="headline mb-0">富人</h3>
-              <h4>人口：<animate-number from="0" to="10" duration="2000" easing="easeInQuad"></animate-number></h4>
-              <h4>资产：$<animate-number from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></h4>
+              <h4>人口：<animate-number ref="num7" from="0" to="10" duration="2000" easing="easeInQuad"></animate-number></h4>
+              <h4>资产：$<animate-number ref="num8" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></h4>
             </div>
           </v-card-title>
           <v-card-text>{{ rich }}</v-card-text>
@@ -177,6 +177,9 @@ export default {
     setInterval(function() {
       self.timeCountdown--;
       if (self.timeCountdown < 0) {
+        for (let i = 0; i < 9; i++) {
+          self.$refs[`num${i}`].start();
+        }
         self.timeCountdown = 30;
       }
     }, 1000);
