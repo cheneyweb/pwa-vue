@@ -6,7 +6,7 @@
       :value="true"
       fixed
     >
-      <v-btn dark to="/">
+      <v-btn dark to="/home">
         <span>文明进程</span>
         <v-icon>history</v-icon>
       </v-btn>
