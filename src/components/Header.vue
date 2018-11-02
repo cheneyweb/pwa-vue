@@ -6,22 +6,20 @@
       </v-toolbar-title>
       <v-spacer/>
       <v-toolbar-items>
-          <v-menu
-            v-model="menu"
-            :close-on-content-click="false"
-            :nudge-width="200"
-            offset-y
-          >
-            <v-btn icon slot="activator">
-                <v-badge overlap>
-                  <span slot="badge">3</span>
-                  <v-avatar size="36" color="purple red--after">
-                    <v-icon dark>notifications</v-icon>
-                  </v-avatar>
-                </v-badge>
-              </v-btn>
-
-            <v-card>
+        <!-- <v-menu
+          v-model="menu"
+          :close-on-content-click="false"
+          :nudge-width="200"
+          offset-y> -->
+          <v-btn @click ="changeDrawer" icon slot="activator">
+            <v-badge overlap>
+              <span slot="badge">3</span>
+              <v-avatar size="36" color="purple red--after">
+                <v-icon dark>notifications</v-icon>
+              </v-avatar>
+            </v-badge>
+          </v-btn>      
+            <!-- <v-card>
               <v-list>
                 <v-list-tile avatar>
                   <v-list-tile-avatar>
@@ -65,14 +63,25 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-
                 <v-btn flat @click="menu = false">Cancel</v-btn>
                 <v-btn color="primary" flat @click="menu = false">Save</v-btn>
               </v-card-actions>
-            </v-card>
-          </v-menu>
+            </v-card> -->
+        <!-- </v-menu> -->
       </v-toolbar-items>
-
-      
     </v-toolbar>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    // menu: false
+  }),
+  methods: {
+    changeDrawer() {
+      this.$store.commit("changeDrawer", !this.$store.state.drawer);
+    }
+  }
+};
+</script>
+

@@ -16,9 +16,17 @@
         flat
         @click="snackbar = false"
       >
-        Close
+        关闭
       </v-btn>
     </v-snackbar>
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      right
+      temporary
+      app
+    >
+    </v-navigation-drawer>
   </div>
 </template>
 
@@ -30,11 +38,23 @@ export default {
     Header,
     Bottom
   },
-  data: () => ({
-    eventMessage:
-      "三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾",
-    snackbar: true
-  })
+  data() {
+    return {
+      eventMessage:
+        "三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾",
+      snackbar: true
+    };
+  },
+  computed: {
+    drawer: {
+      get() {
+        return this.$store.state.drawer;
+      },
+      set(val) {
+        this.$store.commit("changeDrawer", val);
+      }
+    }
+  }
   // computed: {
   //   binding() {
   //     const binding = {};
