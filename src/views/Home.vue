@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid grid-list-sm>
+  <!-- <v-container fluid grid-list-sm> -->
     <v-layout row wrap>
       <v-flex xs12>
         <v-card>
@@ -11,17 +11,36 @@
                 aspect-ratio="3.75"
                 max-height="100"
               >
-              <v-container fill-height fluid>
-                <v-layout fill-height>
-                  <v-flex xs12 align-end flexbox>
-                    <span class="headline">文明的希望是不断繁衍迭代</span>
-                  </v-flex>
-                </v-layout>
-              </v-container>
+                <v-container fill-height fluid>
+                  <v-layout fill-height>
+                    <v-flex xs12 align-end flexbox>
+                      <span class="headline">文明的希望是不断繁衍迭代</span>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
               </v-img>
-              <v-card-title primary-title>
+              <v-card-title primary-title pt-0>
+                <v-layout column pb-2>
+                  <v-card color="grey lighten-5" max-width="400" elevation-20>
+                    <v-flex>
+                    <code>文明法则1</code><span class="caption font-weight-bold">：三种阶层的人相互结合，下一代的阶层由上一代父母决定</span>
+                    </v-flex>
+                    <v-flex>
+                    <code>文明法则2</code><span class="caption font-weight-bold">：阶层差距越大，男女双方结合概率越低</span>
+                    </v-flex>
+                    <v-flex>
+                    <code>文明初始 </code>：<code>穷人-1</code>&nbsp&nbsp&nbsp&nbsp<code>中产 0</code>&nbsp&nbsp&nbsp&nbsp<code>富人+1</code>
+                    </v-flex>
+                    <v-flex>
+                    <code>富人+富人=+2</code>&nbsp&nbsp&nbsp&nbsp<code>富人+中产=+1</code>&nbsp&nbsp&nbsp&nbsp<code>中产+中产= 0</code>
+                    </v-flex>
+                    <v-flex>
+                    <code>富人+穷人= 0</code>&nbsp&nbsp&nbsp&nbsp<code>中产+穷人=-1</code>&nbsp&nbsp&nbsp&nbsp<code>穷人+穷人=-2</code>
+                    </v-flex>
+                  </v-card>
+                </v-layout>
                 <div>
-                  <h3 class="headline mb-0">地球文明</h3>
+                  <h3 class="headline">地球文明</h3>
                   <h4>已更迭人类代数：<animate-number from="0" to="100" duration="2000" easing="easeInQuad"></animate-number></h4>
                   <h4>当代人类总人口：<animate-number from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number></h4>
                   <h4>当代人类总资产：$<animate-number from="0" to="2000" duration="2000" easing="easeInQuad"></animate-number></h4>
@@ -29,15 +48,15 @@
                 </div>
               </v-card-title>
               <v-card-text>{{ tip }}</v-card-text>
-              <v-card-actions>
+              <!-- <v-card-actions>
                 <v-btn flat color="orange">人口问题</v-btn>
                 <v-btn flat color="orange">贫富差距</v-btn>
-              </v-card-actions>
+              </v-card-actions> -->
             </v-flex>
             <v-flex>
               <canvas id="chart1" width="300" height="300"></canvas>
             </v-flex>
-            <v-flex>
+            <v-flex hidden-xs-only>
               <canvas id="chart2" width="300" height="300"></canvas>
             </v-flex>
           </v-layout>
@@ -67,10 +86,10 @@
             </div>
           </v-card-title>
           <v-card-text>{{ poor }}</v-card-text>
-          <v-card-actions>
+          <!-- <v-card-actions>
             <v-btn flat color="orange">人口问题</v-btn>
             <v-btn flat color="orange">贫富差距</v-btn>
-          </v-card-actions>
+          </v-card-actions> -->
         </v-card>
       </v-flex>
       <v-flex d-flex xs12 sm4 child-flex>
@@ -88,10 +107,10 @@
             </div>
           </v-card-title>
           <v-card-text>{{ middle }}</v-card-text>
-          <v-card-actions>
+          <!-- <v-card-actions>
             <v-btn flat color="orange">人口问题</v-btn>
             <v-btn flat color="orange">贫富差距</v-btn>
-          </v-card-actions>
+          </v-card-actions> -->
         </v-card>
       </v-flex>
       <v-flex d-flex xs12 sm4>
@@ -109,10 +128,10 @@
             </div>
           </v-card-title>
           <v-card-text>{{ rich }}</v-card-text>
-          <v-card-actions>
+          <!-- <v-card-actions>
             <v-btn flat color="orange">人口问题</v-btn>
             <v-btn flat color="orange">贫富差距</v-btn>
-          </v-card-actions>
+          </v-card-actions> -->
         </v-card>
       </v-flex>
       <v-flex d-flex xs12 order-xs5>
@@ -130,7 +149,7 @@
         </v-layout>
       </v-flex>
     </v-layout>
-  </v-container>
+  <!-- </v-container> -->
 </template>
 
 <script>
@@ -151,7 +170,7 @@ export default {
     tip: `文明的进程会不可避免的产生贫富差距，消除贫富差距，并延续文明千万代，是你的终极目标`,
     rich: `处于社会金字塔顶，通过剥削下层阶级获取财富`,
     middle: `处于中层，由穷人晋升`,
-    poor: `处于社会底层`
+    poor: `处于社会底层，濒临淘汰`
   }),
   created: function() {
     let self = this;

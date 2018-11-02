@@ -19,24 +19,18 @@
         关闭
       </v-btn>
     </v-snackbar>
-    <v-navigation-drawer
-      v-model="drawer"
-      width="200"
-      fixed
-      right
-      temporary
-      app
-    >
-    </v-navigation-drawer>
+    <Drawer/>
   </div>
 </template>
 
 <script>
 import Header from "../components/Header";
+import Drawer from "../components/Drawer";
 import Bottom from "../components/Bottom";
 export default {
   components: {
     Header,
+    Drawer,
     Bottom
   },
   data() {
@@ -45,16 +39,6 @@ export default {
         "三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾",
       snackbar: true
     };
-  },
-  computed: {
-    drawer: {
-      get() {
-        return this.$store.state.drawer;
-      },
-      set(val) {
-        this.$store.commit("changeDrawer", val);
-      }
-    }
   }
   // computed: {
   //   binding() {
