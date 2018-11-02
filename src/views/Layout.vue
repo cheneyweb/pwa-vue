@@ -21,7 +21,8 @@
     </v-snackbar>
     <v-navigation-drawer
       v-model="drawer"
-      absolute
+      width="200"
+      fixed
       right
       temporary
       app
