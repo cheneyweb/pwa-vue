@@ -2,7 +2,7 @@
     <v-layout>
         <v-flex md4 xs4>
             <v-card>
-                <v-img class="white--text" src="http://img.xserver.top/wenming_poor.png" aspect-ratio="1" max-height="100">
+                <v-img class="white--text" src="http://img.xserver.top/wenming_poor.jpg" aspect-ratio="1" max-height="100">
                     <v-container fill-height fluid>
                         <v-layout fill-height>
                             <v-flex xs12 align-end flexbox>
@@ -31,7 +31,7 @@
         </v-flex>
         <v-flex md4 xs4>
             <v-card>
-                <v-img src="http://img.xserver.top/wenming_middle.png" aspect-ratio="1" max-height="100"></v-img>
+                <v-img src="http://img.xserver.top/wenming_middle.jpg" aspect-ratio="1" max-height="100"></v-img>
                 <v-card-title primary-title>
                     <div>
                         <h3 class="headline mb-0">中产</h3>
@@ -52,7 +52,7 @@
         </v-flex>
         <v-flex md4 xs4>
             <v-card>
-                <v-img src="http://img.xserver.top/wenming_rich.png" aspect-ratio="1" max-height="100"></v-img>
+                <v-img src="http://img.xserver.top/wenming_rich.jpg" aspect-ratio="1" max-height="100"></v-img>
                 <v-card-title primary-title>
                     <div>
                         <h3 class="headline mb-0">富人</h3>
