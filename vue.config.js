@@ -2,7 +2,8 @@ module.exports = {
   productionSourceMap: false,
 
   pwa: {
-    name: '我的文明'
+    name: '我的文明',
+    msTileColor: '#4DBA87'
   },
 
   configureWebpack: {
