@@ -14,8 +14,8 @@
           <v-btn @click ="changeDrawer" icon slot="activator">
             <v-badge overlap>
               <span slot="badge">3</span>
-              <v-avatar size="36" color="purple red--after">
-                <v-icon dark>notifications</v-icon>
+              <v-avatar size="36" color="teal">
+                <v-icon>notifications</v-icon>
               </v-avatar>
             </v-badge>
           </v-btn>      
