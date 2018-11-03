@@ -15,10 +15,10 @@
                     <div>
                         <h3 class="headline mb-0">穷人</h3>
                         <h4>人口：
-                            <animate-number ref="num3" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
+                            <animate-number ref="num0" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
                         </h4>
                         <h4>资产：$
-                            <animate-number ref="num4" from="0" to="0" duration="2000" easing="easeInQuad"></animate-number>
+                            <animate-number ref="num1" from="0" to="0" duration="2000" easing="easeInQuad"></animate-number>
                         </h4>
                     </div>
                 </v-card-title>
@@ -36,10 +36,10 @@
                     <div>
                         <h3 class="headline mb-0">中产</h3>
                         <h4>人口：
-                            <animate-number ref="num5" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number>
+                            <animate-number ref="num2" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number>
                         </h4>
                         <h4>资产：$
-                            <animate-number ref="num6" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
+                            <animate-number ref="num3" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
                         </h4>
                     </div>
                 </v-card-title>
@@ -57,10 +57,10 @@
                     <div>
                         <h3 class="headline mb-0">富人</h3>
                         <h4>人口：
-                            <animate-number ref="num7" from="0" to="10" duration="2000" easing="easeInQuad"></animate-number>
+                            <animate-number ref="num4" from="0" to="10" duration="2000" easing="easeInQuad"></animate-number>
                         </h4>
                         <h4>资产：$
-                            <animate-number ref="num8" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
+                            <animate-number ref="num5" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
                         </h4>
                     </div>
                 </v-card-title>
@@ -75,18 +75,26 @@
 </template>
 
 <script>
-    import NumberGrow from "../components/NumberGrow";
-    export default {
-        components: {
-            NumberGrow
-        },
-        data: () => ({
-            timeCountdown: 30,
-            tip: `文明的进程会不可避免的产生贫富差距，消除贫富差距，并延续文明千万代，是你的终极目标`,
-            rich: `处于社会金字塔顶，通过剥削下层阶级获取财富`,
-            middle: `处于社会中层，由穷人晋升，同时有成为富人的潜力`,
-            poor: `处于社会底层濒临淘汰，极少数可晋升中产`
-        })
-    };
+import NumberGrow from "../components/NumberGrow";
+export default {
+  components: {
+    NumberGrow
+  },
+  created: function() {
+    let self = this;
+    setInterval(function() {
+      for (let i = 0; i < 6; i++) {
+        self.$refs[`num${i}`] ? self.$refs[`num${i}`].start() : null;
+      }
+    }, 30000);
+  },
+  data: () => ({
+    timeCountdown: 30,
+    tip: `文明的进程会不可避免的产生贫富差距，消除贫富差距，并延续文明千万代，是你的终极目标`,
+    rich: `处于社会金字塔顶，通过剥削下层阶级获取财富`,
+    middle: `处于社会中层，由穷人晋升，同时有成为富人的潜力`,
+    poor: `处于社会底层濒临淘汰，极少数可晋升中产`
+  })
+};
 </script>
 
