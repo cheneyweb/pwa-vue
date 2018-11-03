@@ -95,9 +95,9 @@
                 </v-card-title>
                 <v-card-text><code>文明目标</code><span class="caption font-weight-bold">：{{ tip }}</span></v-card-text>
                 <!-- <v-card-actions>
-                                                                        <v-btn flat color="orange">人口问题</v-btn>
-                                                                        <v-btn flat color="orange">贫富差距</v-btn>
-                                                                    </v-card-actions> -->
+                    <v-btn flat color="orange">人口问题</v-btn>
+                    <v-btn flat color="orange">贫富差距</v-btn>
+                </v-card-actions> -->
             </v-flex>
             <v-flex md3 xs12>
                 <canvas id="chart1" width="350" height="150"></canvas>
