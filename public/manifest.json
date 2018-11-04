@@ -1,6 +1,6 @@
 {
-  "name": "pwa-vue",
-  "short_name": "pwa-vue",
+  "name": "我的文明",
+  "short_name": "我的文明",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
