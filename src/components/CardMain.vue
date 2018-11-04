@@ -2,7 +2,7 @@
   <!-- <v-card class="red" flat> -->
   <v-layout wrap>
     <v-flex md6 xs12>
-      <v-img class="white--text" src="http://img.xserver.top/wenming_desert.webp" aspect-ratio="3.75" max-height="100">
+      <v-img class="white--text" src="http://img.xserver.top/wenming_desert.webp" aspect-ratio="7.5" max-height="100">
         <v-container fill-height fluid>
           <v-layout fill-height>
             <v-flex xs12 align-end flexbox>
@@ -85,7 +85,7 @@
                 </v-list-tile>
                 <v-list-tile>
                   <v-list-tile-content>下代人类更新时间</v-list-tile-content>
-                  <v-list-tile-content class="align-end">{{timeCountdown}}(秒)</v-list-tile-content>
+                  <v-list-tile-content class="align-end font-weight-black"><font color="#bd4147">{{timeCountdown}}(秒)</font></v-list-tile-content>
                 </v-list-tile>
               </v-list>
             </v-card>
