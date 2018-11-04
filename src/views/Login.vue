@@ -54,7 +54,7 @@
         </v-flex>
       </v-layout>
   
-      <v-layout align-center justify-center fill-height>
+      <v-layout justify-center fill-height>
         <v-flex xs12 sm4>
           <v-img src="../img/icons/android-chrome-512x512.png" max-height="512" max-width="512">
           </v-img>
