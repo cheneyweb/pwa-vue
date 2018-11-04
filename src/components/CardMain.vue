@@ -2,7 +2,7 @@
     <!-- <v-card class="red" flat> -->
         <v-layout wrap >
             <v-flex md6 xs12>
-                <v-img class="white--text" src="http://img.xserver.top/wenming_desert.png" aspect-ratio="3.75" max-height="100">
+                <v-img class="white--text" src="http://img.xserver.top/wenming_desert.webp" aspect-ratio="3.75" max-height="100">
                     <v-container fill-height fluid>
                         <v-layout fill-height>
                             <v-flex xs12 align-end flexbox>

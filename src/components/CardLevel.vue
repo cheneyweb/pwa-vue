@@ -52,7 +52,7 @@
         </v-flex>
         <v-flex md4 xs4>
             <v-card>
-                <v-img src="http://img.xserver.top/wenming_rich.jpg" aspect-ratio="1" max-height="100"></v-img>
+                <v-img src="http://img.xserver.top/wenming_rich.webp" aspect-ratio="1" max-height="100"></v-img>
                 <v-card-title primary-title>
                     <div>
                         <h3 class="headline mb-0">富人</h3>
