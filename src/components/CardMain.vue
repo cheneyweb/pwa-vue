@@ -1,112 +1,112 @@
 <template>
-    <!-- <v-card class="red" flat> -->
-        <v-layout wrap >
-            <v-flex md6 xs12>
-                <v-img class="white--text" src="http://img.xserver.top/wenming_desert.webp" aspect-ratio="3.75" max-height="100">
-                    <v-container fill-height fluid>
-                        <v-layout fill-height>
-                            <v-flex xs12 align-end flexbox>
-                                <span class="title">文明的希望是不断繁衍迭代</span>
-                            </v-flex>
-                        </v-layout>
-                    </v-container>
-                </v-img>
-                <v-card-title primary-title pt-0>
-                    <v-layout wrap>
-                        <v-flex>
-                            <v-layout wrap>
-                                <v-card color="grey lighten-5" max-width="400" elevation-20>
-                                    <v-flex xs12 pt-2 px-2>
-                                        <code>文明法则1</code><span class="caption font-weight-bold">：三种阶层的人相互结合，下一代的阶层由上一代父母决定</span>
-                                    </v-flex>
-                                    <v-flex xs12 pb-2 px-2>
-                                        <code>文明法则2</code><span class="caption font-weight-bold">：阶层差距越大，男女双方结合概率越低</span>
-                                    </v-flex>
-                                    <v-flex xs12 d-flex>
-                                        <v-btn flat small outline color="green darken-4">穷人-1</v-btn>
-                                        <v-btn small outline color="cyan darken-4">中产 0</v-btn>
-                                        <v-btn small outline color="deep-orange darken-4">富人+1</v-btn>
-                                    </v-flex>
-                                    <v-flex xs12 d-flex justify-center align-center align-content-center>
-                                        <v-btn flat small outline color="brown">富人+富人=+2</v-btn>
-                                        <v-btn flat small outline color="brown">富人+中产=+1</v-btn>
-                                        <v-btn flat small outline color="brown">中产+中产= 0</v-btn>
-                                        <!-- <v-flex><code>富人+富人=+2</code></v-flex>
-                                        <v-flex><code>富人+中产=+1</code></v-flex>
-                                        <v-flex><code>中产+中产= 0</code></v-flex> -->
-                                    </v-flex>
-                                    <v-flex xs12 d-flex>
-                                        <v-btn flat small outline color="brown">富人+穷人= 0</v-btn>
-                                        <v-btn flat small outline color="brown">中产+穷人=-1</v-btn>
-                                        <v-btn flat small outline color="brown">穷人+穷人=-2</v-btn>
-                                        <!-- <v-flex><code>富人+穷人= 0</code></v-flex>
-                                        <v-flex><code>中产+穷人=-1</code></v-flex>
-                                        <v-flex><code>穷人+穷人=-2</code></v-flex> -->
-                                    </v-flex>
-                                </v-card>
-                            </v-layout>
-                        </v-flex>
-                        <v-flex>
-                            <!-- <v-card>
-                                <h3 class="headline">地球文明</h3>
-                                <h4>已更迭人类代数：
-                                    <animate-number ref="num0" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number>
-                                </h4>
-                                <h4>当代人类总人口：
-                                    <animate-number ref="num1" from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number>
-                                </h4>
-                                <h4>当代人类总资产：$
-                                    <animate-number ref="num2" from="0" to="2000" duration="2000" easing="easeInQuad"></animate-number>
-                                </h4>
-                                <h4>下代人类更新时间剩余：{{timeCountdown}}(秒)</h4>
-                            </v-card> -->
-                            <!-- <v-flex slot="item" slot-scope="props"> -->
-                            <v-card>
-                                <v-card-title class="subheading font-weight-bold">地球文明</v-card-title>
-                                <v-divider></v-divider>
-                                <v-list dense>
-                                    <v-list-tile>
-                                        <v-list-tile-content>已更迭人类代数:</v-list-tile-content>
-                                        <v-list-tile-content class="align-end">
-                                            <animate-number ref="num0" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number>
-                                        </v-list-tile-content>
-                                    </v-list-tile>
-                                    <v-list-tile>
-                                        <v-list-tile-content>当代人类总人口:</v-list-tile-content>
-                                        <v-list-tile-content class="align-end">
-                                            <animate-number ref="num1" from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number>
-                                        </v-list-tile-content>
-                                    </v-list-tile>
-                                    <v-list-tile>
-                                        <v-list-tile-content>当代人类总资产:</v-list-tile-content>
-                                        <v-list-tile-content class="align-end">
-                                            <animate-number ref="num2" from="0" to="2000" duration="2000" easing="easeInQuad"></animate-number>
-                                        </v-list-tile-content>
-                                    </v-list-tile>
-                                    <v-list-tile>
-                                        <v-list-tile-content>下代人类更新时间:</v-list-tile-content>
-                                        <v-list-tile-content class="align-end">{{timeCountdown}}(秒)</v-list-tile-content>
-                                    </v-list-tile>
-                                </v-list>
-                            </v-card>
-                        </v-flex>
-                        <!-- </v-flex> -->
-                    </v-layout>
-                </v-card-title>
-                <v-card-text><code>文明目标</code><span class="caption font-weight-bold">：{{ tip }}</span></v-card-text>
-                <!-- <v-card-actions>
-                    <v-btn flat color="orange">人口问题</v-btn>
-                    <v-btn flat color="orange">贫富差距</v-btn>
-                </v-card-actions> -->
+  <!-- <v-card class="red" flat> -->
+  <v-layout wrap>
+    <v-flex md6 xs12>
+      <v-img class="white--text" src="http://img.xserver.top/wenming_desert.webp" aspect-ratio="3.75" max-height="100">
+        <v-container fill-height fluid>
+          <v-layout fill-height>
+            <v-flex xs12 align-end flexbox>
+              <span class="title">文明的希望是不断繁衍迭代</span>
             </v-flex>
-            <v-flex md3 xs12>
-                <canvas id="chart1" width="350" height="150"></canvas>
-            </v-flex>
-            <v-flex md3 hidden-xs-only>
-                <canvas id="chart2" width="350" height="150"></canvas>
-            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-img>
+      <v-card-title primary-title pt-0>
+        <v-layout wrap>
+          <v-flex>
+            <v-layout wrap column>
+              <!-- <v-card  max-width="400" elevation-20> -->
+              <v-flex xs12 pb-1>
+                <code>文明法则</code><span class="caption font-weight-bold">：三种阶层人类相互结合，父母阶层越高，后代阶层越高</span>
+              </v-flex>
+              <v-flex xs12 pb-1>
+                <code>文明法则</code><span class="caption font-weight-bold">：男女双方阶层差距越大，男女双方结合概率越低</span>
+              </v-flex>
+              <v-flex xs12 d-flex hidden-xs-only>
+                <v-btn flat small outline color="green darken-4">穷人-1</v-btn>
+                <v-btn small outline color="cyan darken-4">中产 0</v-btn>
+                <v-btn small outline color="deep-orange darken-4">富人+1</v-btn>
+              </v-flex>
+              <v-flex xs12 d-flex hidden-xs-only>
+                <v-btn flat small outline color="brown">富人+富人=+2</v-btn>
+                <v-btn flat small outline color="brown">富人+中产=+1</v-btn>
+                <v-btn flat small outline color="brown">中产+中产= 0</v-btn>
+                <!-- <v-flex><code>富人+富人=+2</code></v-flex>
+                <v-flex><code>富人+中产=+1</code></v-flex>
+                <v-flex><code>中产+中产= 0</code></v-flex> -->
+              </v-flex>
+              <v-flex xs12 d-flex hidden-xs-only>
+                <v-btn flat small outline color="brown">富人+穷人= 0</v-btn>
+                <v-btn flat small outline color="brown">中产+穷人=-1</v-btn>
+                <v-btn flat small outline color="brown">穷人+穷人=-2</v-btn>
+                <!-- <v-flex><code>富人+穷人= 0</code></v-flex>
+                <v-flex><code>中产+穷人=-1</code></v-flex>
+                <v-flex><code>穷人+穷人=-2</code></v-flex> -->
+              </v-flex>
+              <!-- </v-card> -->
+            </v-layout>
+          </v-flex>
+          <v-flex>
+            <!-- <v-card>
+                <h3 class="headline">地球文明</h3>
+                <h4>已更迭人类代数：
+                    <animate-number ref="num0" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number>
+                </h4>
+                <h4>当代人类总人口：
+                    <animate-number ref="num1" from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number>
+                </h4>
+                <h4>当代人类总资产：$
+                    <animate-number ref="num2" from="0" to="2000" duration="2000" easing="easeInQuad"></animate-number>
+                </h4>
+                <h4>下代人类更新时间剩余：{{timeCountdown}}(秒)</h4>
+            </v-card> -->
+            <!-- <v-flex slot="item" slot-scope="props"> -->
+            <v-card>
+              <v-card-title class="subheading font-weight-bold">地球文明</v-card-title>
+              <v-divider></v-divider>
+              <v-list dense>
+                <v-list-tile>
+                  <v-list-tile-content>已更迭人类代数</v-list-tile-content>
+                  <v-list-tile-content class="align-end">
+                    <kbd><animate-number ref="num0" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number></kbd>
+                  </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content>当代人类总人口</v-list-tile-content>
+                  <v-list-tile-content class="align-end">
+                    <kbd><animate-number ref="num1" from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number></kbd>
+                  </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content>当代人类总资产</v-list-tile-content>
+                  <v-list-tile-content class="align-end">
+                    <kbd>$<animate-number ref="num2" from="0" to="2000" duration="2000" easing="easeInQuad"></animate-number></kbd>
+                  </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content>下代人类更新时间</v-list-tile-content>
+                  <v-list-tile-content class="align-end">{{timeCountdown}}(秒)</v-list-tile-content>
+                </v-list-tile>
+              </v-list>
+            </v-card>
+          </v-flex>
+          <!-- </v-flex> -->
         </v-layout>
-    <!-- </v-card> -->
+      </v-card-title>
+      <v-card-text><code>文明目标</code><span class="caption font-weight-bold">：{{ tip }}</span></v-card-text>
+      <!-- <v-card-actions>
+          <v-btn flat color="orange">人口问题</v-btn>
+          <v-btn flat color="orange">贫富差距</v-btn>
+      </v-card-actions> -->
+    </v-flex>
+    <v-flex md3 xs12>
+      <canvas id="chart1" width="350" height="150"></canvas>
+    </v-flex>
+    <v-flex md3 hidden-xs-only>
+      <canvas id="chart2" width="350" height="150"></canvas>
+    </v-flex>
+  </v-layout>
+  <!-- </v-card> -->
 </template>
 
 <script>

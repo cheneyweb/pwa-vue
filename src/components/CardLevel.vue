@@ -2,11 +2,11 @@
     <v-layout>
         <v-flex md4 xs4>
             <v-card>
-                <v-img class="white--text" src="http://img.xserver.top/wenming_poor.jpg" aspect-ratio="1" max-height="100">
+                <v-img class="white--text" src="http://img.xserver.top/wenming_poor.jpg" aspect-ratio="2.5" max-height="100">
                     <v-container fill-height fluid>
                         <v-layout fill-height>
                             <v-flex xs12 align-end flexbox>
-                                <font color="grey" class="headline ">穷:原罪</font>
+                                <!-- <font color="grey" class="headline ">穷:原罪</font> -->
                             </v-flex>
                         </v-layout>
                     </v-container>
@@ -14,61 +14,61 @@
                 <v-card-title primary-title>
                     <div>
                         <h3 class="headline mb-0">穷人</h3>
-                        <h4>人口：
-                            <animate-number ref="num0" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
+                        <h4>人口
+                            <kbd><animate-number ref="num0" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></kbd>
                         </h4>
-                        <h4>资产：$
-                            <animate-number ref="num1" from="0" to="0" duration="2000" easing="easeInQuad"></animate-number>
+                        <h4>资产
+                            <kbd>$<animate-number ref="num1" from="0" to="0" duration="2000" easing="easeInQuad"></animate-number></kbd>
                         </h4>
                     </div>
                 </v-card-title>
                 <v-card-text>{{ poor }}</v-card-text>
                 <!-- <v-card-actions>
-                            <v-btn flat color="orange">人口问题</v-btn>
-                            <v-btn flat color="orange">贫富差距</v-btn>
-                          </v-card-actions> -->
+                <v-btn flat color="orange">人口问题</v-btn>
+                <v-btn flat color="orange">贫富差距</v-btn>
+                </v-card-actions> -->
             </v-card>
         </v-flex>
         <v-flex md4 xs4>
             <v-card>
-                <v-img src="http://img.xserver.top/wenming_middle.jpg" aspect-ratio="1" max-height="100"></v-img>
+                <v-img src="http://img.xserver.top/wenming_middle.jpg" aspect-ratio="2.5" max-height="100"></v-img>
                 <v-card-title primary-title>
                     <div>
                         <h3 class="headline mb-0">中产</h3>
-                        <h4>人口：
-                            <animate-number ref="num2" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number>
+                        <h4>人口
+                            <kbd><animate-number ref="num2" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number></kbd>
                         </h4>
-                        <h4>资产：$
-                            <animate-number ref="num3" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
+                        <h4>资产
+                            <kbd>$<animate-number ref="num3" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></kbd>
                         </h4>
                     </div>
                 </v-card-title>
                 <v-card-text>{{ middle }}</v-card-text>
                 <!-- <v-card-actions>
-                            <v-btn flat color="orange">人口问题</v-btn>
-                            <v-btn flat color="orange">贫富差距</v-btn>
-                          </v-card-actions> -->
+                <v-btn flat color="orange">人口问题</v-btn>
+                <v-btn flat color="orange">贫富差距</v-btn>
+                </v-card-actions> -->
             </v-card>
         </v-flex>
         <v-flex md4 xs4>
             <v-card>
-                <v-img src="http://img.xserver.top/wenming_rich.webp" aspect-ratio="1" max-height="100"></v-img>
+                <v-img src="http://img.xserver.top/wenming_rich.webp" aspect-ratio="2.5" max-height="100"></v-img>
                 <v-card-title primary-title>
                     <div>
                         <h3 class="headline mb-0">富人</h3>
-                        <h4>人口：
-                            <animate-number ref="num4" from="0" to="10" duration="2000" easing="easeInQuad"></animate-number>
+                        <h4>人口
+                            <kbd><animate-number ref="num4" from="0" to="10" duration="2000" easing="easeInQuad"></animate-number></kbd>
                         </h4>
-                        <h4>资产：$
-                            <animate-number ref="num5" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
+                        <h4>资产
+                            <kbd>$<animate-number ref="num5" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number></kbd>
                         </h4>
                     </div>
                 </v-card-title>
                 <v-card-text>{{ rich }}</v-card-text>
                 <!-- <v-card-actions>
-                            <v-btn flat color="orange">人口问题</v-btn>
-                            <v-btn flat color="orange">贫富差距</v-btn>
-                          </v-card-actions> -->
+                <v-btn flat color="orange">人口问题</v-btn>
+                <v-btn flat color="orange">贫富差距</v-btn>
+                </v-card-actions> -->
             </v-card>
         </v-flex>
     </v-layout>
