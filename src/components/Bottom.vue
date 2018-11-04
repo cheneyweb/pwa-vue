@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container pt-0>
     <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" fixed height="45">
       <v-btn dark to="/home">
         <span>文明进程</span>
