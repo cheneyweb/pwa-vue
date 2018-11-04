@@ -3,22 +3,6 @@
     <Header/>
     <router-view/>
     <Bottom/>
-    <v-snackbar
-      v-model="snackbar"
-      top
-      right
-      multi-line
-      color="error"
-    >
-    {{ eventMessage }}
-      <v-btn
-        color="gray"
-        flat
-        @click="snackbar = false"
-      >
-        关闭
-      </v-btn>
-    </v-snackbar>
     <Drawer/>
   </div>
 </template>
@@ -35,9 +19,6 @@ export default {
   },
   data() {
     return {
-      eventMessage:
-        "三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾",
-      snackbar: true
     };
   }
   // computed: {

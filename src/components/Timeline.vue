@@ -4,13 +4,13 @@
       v-for="n in 4"
       :key="n"
       color="red lighten-2"
-      large
+      small
     >
-      <span slot="opposite">Tus eu perfecto</span>
+      <span slot="opposite">1—10代文明</span>
       <v-card class="elevation-2">
-        <v-card-title class="headline">Lorem ipsum</v-card-title>
+        <v-card-title class="headline">原始文明</v-card-title>
         <v-card-text>
-          Lorem ipsum dolor sit amet, no nam oblique veritus.
+          当前文明进程中，您的人口增长率高达300%
         </v-card-text>
       </v-card>
     </v-timeline-item>

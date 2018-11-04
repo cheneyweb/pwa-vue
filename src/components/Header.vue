@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar app>
+    <v-toolbar app height="45">
       <v-toolbar-title class="headline">
         <span>我的文明</span>
         <span class="font-weight-light">MyCivilization</span>
@@ -11,11 +11,11 @@
           :close-on-content-click="false"
           :nudge-width="200"
           offset-y> -->
-          <v-btn @click ="changeDrawer" icon slot="activator">
+          <v-btn dark @click ="changeDrawer" icon slot="activator">
             <v-badge overlap>
               <span slot="badge">3</span>
-              <v-avatar size="36" color="teal">
-                <v-icon>notifications</v-icon>
+              <v-avatar size="30" color="teal">
+                <v-icon size="20">notifications</v-icon>
               </v-avatar>
             </v-badge>
           </v-btn>      

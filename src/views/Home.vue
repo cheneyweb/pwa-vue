@@ -13,28 +13,35 @@
     <v-flex xs12>
       <SelectExpend/>
     </v-flex>
+    <v-snackbar v-model="snackbar" top right color="error">
+      三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾
+      <v-btn color="gray" flat @click="snackbar = false">
+        关闭
+      </v-btn>
+    </v-snackbar>
   </v-layout>
   <!-- </v-container> -->
 </template>
 
 <script>
-  import CardMain from "../components/CardMain";
-  import CardLevel from "../components/CardLevel";
-  import SliderTax from "../components/SliderTax";
-  import SelectExpend from "../components/SelectExpend";
-  
-  export default {
-    components: {
-      CardMain,
-      CardLevel,
-      SliderTax,
-      SelectExpend
-    },
-    data: () => ({}),
-    created: function() {}
-  };
+import CardMain from "../components/CardMain";
+import CardLevel from "../components/CardLevel";
+import SliderTax from "../components/SliderTax";
+import SelectExpend from "../components/SelectExpend";
+
+export default {
+  components: {
+    CardMain,
+    CardLevel,
+    SliderTax,
+    SelectExpend
+  },
+  data: () => ({
+    snackbar: true
+  }),
+  created: function() {}
+};
 </script>
 
 <style>
-  
 </style>

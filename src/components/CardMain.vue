@@ -110,166 +110,167 @@
 </template>
 
 <script>
-    // import NumberGrow from "./components/NumberGrow";
-    import F2 from "@antv/f2";
-    F2.track(false);
-    
-    export default {
-        components: {
-            // NumberGrow
-        },
-        data: () => ({
-            timeCountdown: 30,
-            tip: `文明的进程不可避免的产生贫富差距，消除贫富差距，并延续文明千万代，是你的终极目标`
-        }),
-        created: function() {
-            let self = this;
-            setInterval(function() {
-                self.timeCountdown--;
-                if (self.timeCountdown < 0) {
-                    for (let i = 0; i < 3; i++) {
-                        self.$refs[`num${i}`] ? self.$refs[`num${i}`].start() : null;
-                    }
-                    self.timeCountdown = 30;
-                }
-            }, 1000);
-        },
-        mounted: function() {
-            this.chart1();
-            this.chart2();
-        },
-        methods: {
-            chart1: () => {
-                // 自定义线图变更动画
-                F2.Animate.registerAnimation("lineUpdate", function(
-                    updateShape,
-                    animateCfg
-                ) {
-                    var cacheShape = updateShape.get("cacheShape"); // 该动画 shape 的前一个状态
-                    var cacheAttrs = cacheShape.attrs; // 上一个 shape 属性
-                    var oldPoints = cacheAttrs.points; // 上一个状态的关键点
-                    var newPoints = updateShape.attr("points"); // 当前 shape 的关键点
-    
-                    var oldLength = oldPoints.length;
-                    var newLength = newPoints.length;
-                    var deltaLength = newLength - oldLength;
-    
-                    var lastPoint = newPoints[newPoints.length - 1];
-                    for (var i = 0; i < deltaLength; i++) {
-                        oldPoints.push(lastPoint);
-                    }
-    
-                    updateShape.attr(cacheAttrs);
-                    updateShape.animate().to({
-                        attrs: {
-                            points: newPoints
-                        },
-                        duration: 800,
-                        easing: animateCfg.easing
-                    });
-                });
-    
-                var data = [];
-                // 添加数据，模拟数据，可以指定当前时间的偏移的秒
-                function getRecord(offset) {
-                    offset = offset || 0;
-                    return {
-                        time: new Date().getTime() + offset * 1000,
-                        value: Math.random() + 10
-                    };
-                }
-    
-                data.push(getRecord(-2));
-                data.push(getRecord(-1));
-                data.push(getRecord());
-    
-                var chart = new F2.Chart({
-                    id: "chart1",
-                    pixelRatio: window.devicePixelRatio
-                });
-    
-                var defs = {
-                    time: {
-                        type: "timeCat",
-                        mask: "HH:mm:ss",
-                        range: [0, 1]
-                    },
-                    value: {
-                        tickCount: 5,
-                        min: 8
-                    }
-                };
-                chart.source(data, defs);
-                chart.axis("time", {
-                    label: function label(text, index, total) {
-                        var textCfg = {
-                            text: ""
-                        };
-                        if (index === 0) {
-                            textCfg.textAlign = "left";
-                            textCfg.text = text;
-                        } else if (index === total - 1) {
-                            textCfg.textAlign = "right";
-                            textCfg.text = text;
-                        }
-                        return textCfg;
-                    }
-                });
-    
-                chart
-                    .line()
-                    .position("time*value")
-                    .shape("smooth")
-                    .animate({
-                        update: {
-                            animation: "lineUpdate"
-                        }
-                    });
-    
-                chart.render();
-    
-                setInterval(function() {
-                    data.push(getRecord());
-                    chart.changeData(data);
-                }, 1000);
-            },
-            chart2: () => {
-                var data = [{
-                        year: "穷人",
-                        sales: 1000
-                    },
-                    {
-                        year: "中产",
-                        sales: 100
-                    },
-                    {
-                        year: "富人",
-                        sales: 10
-                    }
-                ];
-                var chart = new F2.Chart({
-                    id: "chart2",
-                    pixelRatio: window.devicePixelRatio
-                });
-    
-                chart.source(data, {
-                    sales: {
-                        tickCount: 5
-                    }
-                });
-                chart.tooltip({
-                    showItemMarker: false,
-                    onShow: function onShow(ev) {
-                        var items = ev.items;
-                        items[0].name = null;
-                        items[0].name = items[0].title;
-                        items[0].value = items[0].value;
-                    }
-                });
-                chart.interval().position("year*sales");
-                chart.render();
-            }
+// import NumberGrow from "./components/NumberGrow";
+import F2 from "@antv/f2";
+F2.track(false);
+
+export default {
+  components: {
+    // NumberGrow
+  },
+  data: () => ({
+    timeCountdown: 30,
+    tip: `文明的进程不可避免的产生贫富差距，消除贫富差距，并延续文明千万代，是你的终极目标`
+  }),
+  created: function() {
+    let self = this;
+    setInterval(function() {
+      self.timeCountdown--;
+      if (self.timeCountdown < 0) {
+        for (let i = 0; i < 3; i++) {
+          self.$refs[`num${i}`] ? self.$refs[`num${i}`].start() : null;
         }
-    };
+        self.timeCountdown = 30;
+      }
+    }, 1000);
+  },
+  mounted: function() {
+    this.chart1();
+    this.chart2();
+  },
+  methods: {
+    chart1: () => {
+      // 自定义线图变更动画
+      F2.Animate.registerAnimation("lineUpdate", function(
+        updateShape,
+        animateCfg
+      ) {
+        var cacheShape = updateShape.get("cacheShape"); // 该动画 shape 的前一个状态
+        var cacheAttrs = cacheShape.attrs; // 上一个 shape 属性
+        var oldPoints = cacheAttrs.points; // 上一个状态的关键点
+        var newPoints = updateShape.attr("points"); // 当前 shape 的关键点
+
+        var oldLength = oldPoints.length;
+        var newLength = newPoints.length;
+        var deltaLength = newLength - oldLength;
+
+        var lastPoint = newPoints[newPoints.length - 1];
+        for (var i = 0; i < deltaLength; i++) {
+          oldPoints.push(lastPoint);
+        }
+
+        updateShape.attr(cacheAttrs);
+        updateShape.animate().to({
+          attrs: {
+            points: newPoints
+          },
+          duration: 800,
+          easing: animateCfg.easing
+        });
+      });
+
+      var data = [];
+      // 添加数据，模拟数据，可以指定当前时间的偏移的秒
+      function getRecord(offset) {
+        offset = offset || 0;
+        return {
+          time: new Date().getTime() + offset * 1000,
+          value: Math.random() + 10
+        };
+      }
+
+      data.push(getRecord(-2));
+      data.push(getRecord(-1));
+      data.push(getRecord());
+
+      var chart = new F2.Chart({
+        id: "chart1",
+        pixelRatio: window.devicePixelRatio
+      });
+
+      var defs = {
+        time: {
+          type: "timeCat",
+          mask: "HH:mm:ss",
+          range: [0, 1]
+        },
+        value: {
+          tickCount: 5,
+          min: 8
+        }
+      };
+      chart.source(data, defs);
+      chart.axis("time", {
+        label: function label(text, index, total) {
+          var textCfg = {
+            text: ""
+          };
+          if (index === 0) {
+            textCfg.textAlign = "left";
+            textCfg.text = text;
+          } else if (index === total - 1) {
+            textCfg.textAlign = "right";
+            textCfg.text = text;
+          }
+          return textCfg;
+        }
+      });
+
+      chart
+        .line()
+        .position("time*value")
+        .shape("smooth")
+        .animate({
+          update: {
+            animation: "lineUpdate"
+          }
+        });
+
+      chart.render();
+
+      setInterval(function() {
+        data.push(getRecord());
+        chart.changeData(data);
+      }, 1000);
+    },
+    chart2: () => {
+      var data = [
+        {
+          year: "穷人",
+          sales: 1000
+        },
+        {
+          year: "中产",
+          sales: 100
+        },
+        {
+          year: "富人",
+          sales: 10
+        }
+      ];
+      var chart = new F2.Chart({
+        id: "chart2",
+        pixelRatio: window.devicePixelRatio
+      });
+
+      chart.source(data, {
+        sales: {
+          tickCount: 5
+        }
+      });
+      chart.tooltip({
+        showItemMarker: false,
+        onShow: function onShow(ev) {
+          var items = ev.items;
+          items[0].name = null;
+          items[0].name = items[0].title;
+          items[0].value = items[0].value;
+        }
+      });
+      chart.interval().position("year*sales");
+      chart.render();
+    }
+  }
+};
 </script>
 
