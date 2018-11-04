@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header/>
+    <!-- <Header/> -->
     <router-view/>
     <Bottom/>
     <Drawer/>
@@ -18,8 +18,7 @@ export default {
     Bottom
   },
   data() {
-    return {
-    };
+    return {};
   }
   // computed: {
   //   binding() {

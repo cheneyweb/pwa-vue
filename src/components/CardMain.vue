@@ -6,7 +6,7 @@
                     <v-container fill-height fluid>
                         <v-layout fill-height>
                             <v-flex xs12 align-end flexbox>
-                                <span class="headline">文明的希望是不断繁衍迭代</span>
+                                <span class="title">文明的希望是不断繁衍迭代</span>
                             </v-flex>
                         </v-layout>
                     </v-container>
@@ -24,8 +24,8 @@
                                     </v-flex>
                                     <v-flex xs12 d-flex>
                                         <v-btn flat small outline color="green darken-4">穷人-1</v-btn>
-                                        <v-btn small outline color="blue darken-4">中产 0</v-btn>
-                                        <v-btn small outline color="red darken-4">富人+1</v-btn>
+                                        <v-btn small outline color="cyan darken-4">中产 0</v-btn>
+                                        <v-btn small outline color="deep-orange darken-4">富人+1</v-btn>
                                     </v-flex>
                                     <v-flex xs12 d-flex justify-center align-center align-content-center>
                                         <v-btn flat small outline color="brown">富人+富人=+2</v-btn>

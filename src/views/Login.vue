@@ -1,7 +1,7 @@
 <template>
   <!-- <v-content> -->
   <v-layout d-flex justify-center fill-height>
-    <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="680">
+    <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="800">
   
       <v-layout align-center justify-center fill-height>
         <v-flex xs12 sm4 mr-1>

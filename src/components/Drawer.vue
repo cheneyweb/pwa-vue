@@ -29,28 +29,28 @@
 </template>
 
 <script>
-  export default {
-    components: {},
-    data() {
-      return {};
-    },
-    computed: {
-      drawer: {
-        get() {
-          return this.$store.state.drawer;
-        },
-        set(val) {
-          this.$store.commit("changeDrawer", val);
-        }
+export default {
+  components: {},
+  data() {
+    return {};
+  },
+  computed: {
+    drawer: {
+      get() {
+        return this.$store.state.drawer;
+      },
+      set(val) {
+        this.$store.commit("changeDrawer", val);
       }
     }
-    // computed: {
-    //   binding() {
-    //     const binding = {};
-    //     if (this.$vuetify.breakpoint.mdAndUp) binding.column = true;
-    //     return binding;
-    //   }
-    // }
-  };
+  }
+  // computed: {
+  //   binding() {
+  //     const binding = {};
+  //     if (this.$vuetify.breakpoint.mdAndUp) binding.column = true;
+  //     return binding;
+  //   }
+  // }
+};
 </script>
 
