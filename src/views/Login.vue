@@ -1,7 +1,7 @@
 <template>
   <!-- <v-content> -->
   <v-layout d-flex justify-center fill-height>
-    <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="700">
+    <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="680">
   
       <v-layout align-center justify-center fill-height>
         <v-flex xs12 sm4 mr-1>
@@ -57,8 +57,15 @@
       <v-layout justify-center fill-height>
         <v-flex xs12 sm4>
           <v-img src="../img/icons/android-chrome-512x512.png" max-height="512" max-width="512">
+            <div class="text-xs-center">2018-2019 &copy; CheneyXu</div>
           </v-img>
         </v-flex>
+  
+        <!-- <v-flex xs12 sm14> -->
+        <!-- </v-flex> -->
+        <!-- </v-layout> -->
+        <!-- <v-layout justify-center fill-height> -->
+  
       </v-layout>
   
     </v-parallax>

@@ -120,7 +120,7 @@ export default {
   },
   data: () => ({
     timeCountdown: 30,
-    tip: `文明的进程不可避免的产生贫富差距，消除贫富差距，并延续文明千万代，是你的终极目标`
+    tip: `文明进程不可避免的产生贫富差距，消除贫富差距，并延续文明千万代，是你的终极目标`
   }),
   created: function() {
     let self = this;
