@@ -2,7 +2,8 @@
   <!-- <v-content> -->
   <v-layout d-flex justify-center fill-height>
     <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="800">
-  
+      <div class="text-xs-center">建议您【添加到主屏幕】或【收藏】以便下次打开</div>
+      <div class="text-xs-center">若添加失败，请在系统中对本浏览器应用允许开启【创建桌面快捷方式】权限</div>
       <v-layout align-center justify-center fill-height>
         <v-flex xs12 sm4 mr-1>
           <v-card class="elevation-12">
