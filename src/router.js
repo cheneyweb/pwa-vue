@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Home from './views/Home.vue'
 import Stat from './views/Stat.vue'
+import Explore from './views/Explore.vue'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/stat',
       name: 'stat',
       component: Stat
+    },
+    {
+      path: '/explore',
+      name: 'explore',
+      component: Explore
     },
     {
       path: '/about',

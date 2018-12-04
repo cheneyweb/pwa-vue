@@ -9,7 +9,7 @@
         <span>文明数据</span>
         <v-icon>trending_up</v-icon>
       </v-btn>
-      <v-btn dark to="/about">
+      <v-btn dark to="/explore">
         <span>文明探索</span>
         <v-icon>search</v-icon>
       </v-btn>
