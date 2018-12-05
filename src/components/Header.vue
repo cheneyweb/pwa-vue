@@ -1,25 +1,25 @@
 <template>
-    <v-toolbar app height="45">
-      <v-toolbar-title class="headline">
-        <span>我的文明</span>
-        <span class="font-weight-light">MyCivilization</span>
-      </v-toolbar-title>
-      <v-spacer/>
-      <v-toolbar-items>
-        <!-- <v-menu
+  <v-toolbar app height="45">
+    <v-toolbar-title class="headline">
+      <span>我的文明</span>
+      <span class="font-weight-light">MyCivilization</span>
+    </v-toolbar-title>
+    <v-spacer/>
+    <v-toolbar-items>
+      <!-- <v-menu
           v-model="menu"
           :close-on-content-click="false"
           :nudge-width="200"
-          offset-y> -->
-          <v-btn dark @click ="changeDrawer" icon slot="activator">
-            <v-badge overlap>
-              <span slot="badge">3</span>
-              <v-avatar size="30" color="teal">
-                <v-icon size="20">notifications</v-icon>
-              </v-avatar>
-            </v-badge>
-          </v-btn>      
-            <!-- <v-card>
+      offset-y>-->
+      <v-btn dark @click="changeDrawer" icon slot="activator">
+        <v-badge overlap>
+          <span slot="badge">3</span>
+          <v-avatar size="30" color="teal">
+            <v-icon size="20">notifications</v-icon>
+          </v-avatar>
+        </v-badge>
+      </v-btn>
+      <!-- <v-card>
               <v-list>
                 <v-list-tile avatar>
                   <v-list-tile-avatar>
@@ -66,10 +66,10 @@
                 <v-btn flat @click="menu = false">Cancel</v-btn>
                 <v-btn color="primary" flat @click="menu = false">Save</v-btn>
               </v-card-actions>
-            </v-card> -->
-        <!-- </v-menu> -->
-      </v-toolbar-items>
-    </v-toolbar>
+      </v-card>-->
+      <!-- </v-menu> -->
+    </v-toolbar-items>
+  </v-toolbar>
 </template>
 
 <script>
