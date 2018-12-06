@@ -26,8 +26,8 @@ after_script:
   # - echo $TRAVIS_BUILD_DIR  #/home/travis/build/cheneyweb/pwa-vue
   - cd ./ci
   - rm -f pagelist.txt
-  - echo $AK
+  - bucketName="pwa-vue"
   - ./qshell account $AK $SK 457299596@qq.com
-  - ./qshell listbucket2 pwa-vue -o pagelist.txt
-  - ./qshell batchdelete --force pwa-vue -i pagelist.txt
-  - ./qshell qupload ./qshell_pwa-vue.conf
+  - ./qshell listbucket2 $bucketName -o pagelist.txt
+  - ./qshell batchdelete --force $bucketName -i pagelist.txt
+  - ./qshell qupload ./qshell.conf
