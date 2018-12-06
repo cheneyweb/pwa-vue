@@ -1,6 +1,12 @@
 language: node_js
-node_js: 
-    - 'lts/*'
+node_js: 'lts/*'
+#缓存
+cache: npm
+#指定分支
+branches:
+  only:
+  - master
+#安装环境
 install:
   - npm install
 before_script:
@@ -22,11 +28,6 @@ after_script:
   - cd ./ci
   - rm -f pagelist.txt
   - ./qshell account $AK $SK 457299596@qq.com
-  - ./qshell listbucket pwa-vue pagelist.txt
-  - ./qshell batchdelete -force pwa-vue pagelist.txt
+  - ./qshell listbucket2 pwa-vue -o pagelist.txt
+  - ./qshell batchdelete --force pwa-vue -i pagelist.txt
   - ./qshell qupload ./qshell_pwa-vue.conf
-  
-# 只对某个分支行为生效
-branches:
-  only:
-    - master
