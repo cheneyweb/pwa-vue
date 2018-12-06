@@ -9,11 +9,11 @@ branches:
 #安装环境
 install:
   - npm install
-before_script:
-  - 
+#执行构建
 script:
   - npm run build
-after_script:
+#推送发布
+deploy:
   #推送至构建发布分支，以GithubPage展示
   #- cd ./dist
   #- git init
@@ -27,6 +27,7 @@ after_script:
   # - echo $TRAVIS_BUILD_DIR  #/home/travis/build/cheneyweb/pwa-vue
   - cd ./ci
   - rm -f pagelist.txt
+  - echo $AK
   - ./qshell account $AK $SK 457299596@qq.com
   - ./qshell listbucket2 pwa-vue -o pagelist.txt
   - ./qshell batchdelete --force pwa-vue -i pagelist.txt
