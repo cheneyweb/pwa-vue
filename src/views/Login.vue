@@ -183,9 +183,10 @@ export default {
     // 登录
     async login() {
       if (this.nickName) {
-        let res = await this.$store.dispatch("login", {
-          nickName: this.nickName
-        });
+        // let res = await this.$store.dispatch("login", {
+        //   nickName: this.nickName
+        // });
+        let res = { err: false, res: "tokentest" };
         if (res.err) {
           this.err = res.err;
           this.errMsg = res.res;
