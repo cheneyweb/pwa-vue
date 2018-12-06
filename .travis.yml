@@ -18,10 +18,10 @@ after_script:
   #- git push --force --quiet "https://${test_token}@${GH_REF}" master:${P_BRANCH}
   
   #推送至七牛云
-  - echo $TRAVIS_BUILD_DIR
+  # - echo $TRAVIS_BUILD_DIR  #/home/travis/build/cheneyweb/pwa-vue
   - cd ./ci
   - rm -f pagelist.txt
-  - ./qshell account $AK $SK
+  - ./qshell account $AK $SK 457299596@qq.com
   - ./qshell listbucket pwa-vue pagelist.txt
   - ./qshell batchdelete -force pwa-vue pagelist.txt
   - ./qshell qupload ./qshell_pwa-vue.conf
