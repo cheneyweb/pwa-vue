@@ -13,7 +13,7 @@ install:
 script:
   - npm run build
 #推送发布
-deploy:
+after_script:
   #推送至构建发布分支，以GithubPage展示
   #- cd ./dist
   #- git init
@@ -22,7 +22,6 @@ deploy:
   #- git add .
   #- git commit -m "build with ci"
   #- git push --force --quiet "https://${test_token}@${GH_REF}" master:${P_BRANCH}
-  
   #推送至七牛云
   # - echo $TRAVIS_BUILD_DIR  #/home/travis/build/cheneyweb/pwa-vue
   - cd ./ci
