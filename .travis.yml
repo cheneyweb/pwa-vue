@@ -1,0 +1,32 @@
+language: node_js
+node_js: 
+    - 'lts/*'
+install:
+  - npm install
+before_script:
+  - 
+script:
+  - npm run build
+after_script:
+  #推送至构建发布分支，以GithubPage展示
+  #- cd ./dist
+  #- git init
+  #- git config user.name "${USER_NAME}"
+  #- git config user.email "${USER_EMAIL}"
+  #- git add .
+  #- git commit -m "build with ci"
+  #- git push --force --quiet "https://${test_token}@${GH_REF}" master:${P_BRANCH}
+  
+  #推送至七牛云
+  - echo $TRAVIS_BUILD_DIR
+  - cd ./ci
+  - rm -f pagelist.txt
+  - ./qshell account $AK $SK
+  - ./qshell listbucket pwa-vue pagelist.txt
+  - ./qshell batchdelete -force pwa-vue pagelist.txt
+  - ./qshell qupload ./qshell_pwa-vue.conf
+  
+# 只对某个分支行为生效
+branches:
+  only:
+    - master

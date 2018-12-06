@@ -262,6 +262,9 @@ export default {
 
       setInterval(() => {
         data.push(getRecord());
+        if (data.length > 11) {
+          data = data.slice(10);
+        }
         chart.changeData(data);
         // chart.guide().tag({
         //   position: [data[data.length - 1].time, data[data.length - 1].value],
