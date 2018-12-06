@@ -103,13 +103,16 @@
                 <v-list-tile>
                   <v-list-tile-content>当代人类总资产</v-list-tile-content>
                   <v-list-tile-content class="align-end">
-                    <kbd>$<animate-number
+                    <kbd>
+                      <animate-number
                         ref="num2"
                         from="0"
                         to="2000"
                         duration="2000"
                         easing="easeInQuad"
-                      ></animate-number></kbd>
+                        :formatter="formatterAnimateNumber"
+                      ></animate-number>
+                    </kbd>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile>
@@ -134,10 +137,10 @@
       </v-card-actions>-->
     </v-flex>
     <v-flex md3 xs12>
-      <canvas id="chart1" width="350" height="150"></canvas>
+      <canvas id="chart1" width="375" height="150"></canvas>
     </v-flex>
     <v-flex md3 hidden-xs-only>
-      <canvas id="chart2" width="350" height="150"></canvas>
+      <canvas id="chart2" width="375" height="150"></canvas>
     </v-flex>
   </v-layout>
   <!-- </v-card> -->
@@ -173,12 +176,17 @@ export default {
     this.chart2();
   },
   methods: {
+    formatterAnimateNumber: num => {
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 2
+      });
+      return formatter.format(num);
+    },
     chart1: () => {
       // 自定义线图变更动画
-      F2.Animate.registerAnimation("lineUpdate", function(
-        updateShape,
-        animateCfg
-      ) {
+      F2.Animate.registerAnimation("lineUpdate", (updateShape, animateCfg) => {
         var cacheShape = updateShape.get("cacheShape"); // 该动画 shape 的前一个状态
         var cacheAttrs = cacheShape.attrs; // 上一个 shape 属性
         var oldPoints = cacheAttrs.points; // 上一个状态的关键点
@@ -203,53 +211,44 @@ export default {
         });
       });
 
-      var data = [];
-      // 添加数据，模拟数据，可以指定当前时间的偏移的秒
-      function getRecord(offset) {
-        offset = offset || 0;
+      // 数据源，可以指定当前时间的偏移的秒
+      let generation = -1;
+      function getRecord() {
         return {
-          time: new Date().getTime() + offset * 1000,
-          value: Math.random() + 10
+          time: `${++generation}代人类`,
+          value: Math.floor(Math.random() * generation * 1000)
         };
       }
-
-      data.push(getRecord(-2));
-      data.push(getRecord(-1));
+      var data = [];
+      data.push(getRecord());
+      data.push(getRecord());
       data.push(getRecord());
 
+      // 实例化图表
       var chart = new F2.Chart({
         id: "chart1",
+        padding: [5, "auto", 20, "auto"],
         pixelRatio: window.devicePixelRatio
       });
-
-      var defs = {
+      chart.source(data, {
         time: {
-          type: "timeCat",
-          mask: "HH:mm:ss",
-          range: [0, 1]
+          // type: "timeCat",
+          // mask: "HH:mm:ss",
+          range: [0, 1],
+          tickCount: 5
         },
         value: {
-          tickCount: 5,
-          min: 8
-        }
-      };
-      chart.source(data, defs);
-      chart.axis("time", {
-        label: function label(text, index, total) {
-          var textCfg = {
-            text: ""
-          };
-          if (index === 0) {
-            textCfg.textAlign = "left";
-            textCfg.text = text;
-          } else if (index === total - 1) {
-            textCfg.textAlign = "right";
-            textCfg.text = text;
-          }
-          return textCfg;
+          min: 1,
+          tickCount: 5
         }
       });
-
+      chart.tooltip({
+        showCrosshairs: true,
+        onShow: function onShow(ev) {
+          var items = ev.items;
+          items[0].name = items[0].title;
+        }
+      });
       chart
         .line()
         .position("time*value")
@@ -259,12 +258,16 @@ export default {
             animation: "lineUpdate"
           }
         });
-
       chart.render();
 
-      setInterval(function() {
+      setInterval(() => {
         data.push(getRecord());
         chart.changeData(data);
+        // chart.guide().tag({
+        //   position: [data[data.length - 1].time, data[data.length - 1].value],
+        //   content: data[data.length - 1].value,
+        //   direct: "tl"
+        // });
       }, 1000);
     },
     chart2: () => {
@@ -284,9 +287,9 @@ export default {
       ];
       var chart = new F2.Chart({
         id: "chart2",
+        padding: [5, "auto", 20, "auto"],
         pixelRatio: window.devicePixelRatio
       });
-
       chart.source(data, {
         sales: {
           tickCount: 5

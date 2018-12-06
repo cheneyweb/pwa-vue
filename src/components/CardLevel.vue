@@ -27,7 +27,15 @@
             </h4>
             <h4>
               资产
-              <kbd>$<animate-number ref="num1" from="0" to="0" duration="2000" easing="easeInQuad"></animate-number>
+              <kbd>
+                <animate-number
+                  ref="num1"
+                  from="0"
+                  to="0"
+                  duration="2000"
+                  easing="easeInQuad"
+                  :formatter="formatterAnimateNumber"
+                ></animate-number>
               </kbd>
             </h4>
           </div>
@@ -53,7 +61,15 @@
             </h4>
             <h4>
               资产
-              <kbd>$<animate-number ref="num3" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
+              <kbd>
+                <animate-number
+                  ref="num3"
+                  from="0"
+                  to="1000"
+                  duration="2000"
+                  easing="easeInQuad"
+                  :formatter="formatterAnimateNumber"
+                ></animate-number>
               </kbd>
             </h4>
           </div>
@@ -79,7 +95,15 @@
             </h4>
             <h4>
               资产
-              <kbd>$<animate-number ref="num5" from="0" to="1000" duration="2000" easing="easeInQuad"></animate-number>
+              <kbd>
+                <animate-number
+                  ref="num5"
+                  from="0"
+                  to="1000"
+                  duration="2000"
+                  easing="easeInQuad"
+                  :formatter="formatterAnimateNumber"
+                ></animate-number>
               </kbd>
             </h4>
           </div>
@@ -107,6 +131,16 @@ export default {
         self.$refs[`num${i}`] ? self.$refs[`num${i}`].start() : null;
       }
     }, 30000);
+  },
+  methods: {
+    formatterAnimateNumber: num => {
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 2
+      });
+      return formatter.format(num);
+    }
   },
   data: () => ({
     timeCountdown: 30,
