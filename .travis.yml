@@ -42,6 +42,7 @@ after_script:
   #推送至七牛云
   # - cd ./ci
   - rm -f pagelist.txt
+  - pwd
   - ls -a
   - ./qshell account $AK $SK 457299596@qq.com
   - ./qshell listbucket2 $BUCKET_NAME -o pagelist.txt
