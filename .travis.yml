@@ -24,7 +24,8 @@ before_script:
 script:
   - |
     if [ ! -e "./qshell/qshell" ]; then
-    mkdir qshell && cd qshell
+    rm -rf qshell && mkdir qshell
+    cd qshell
     wget http://devtools.qiniu.com/qshell-v2.3.4.zip
     unzip qshell-v2.3.4.zip
     mv qshell_linux_x64 qshell
