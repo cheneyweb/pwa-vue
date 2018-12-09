@@ -20,9 +20,9 @@ before_script:
   - npm run build
 #下载qshell
 script:
-  - if [ ! -e "./qshell/qshell" ]; then
-    rm -rf qshell && mkdir qshell
-    cd qshell
+  - |
+    if [ ! -e "./qshell/qshell" ]; then
+    rm -rf qshell && mkdir qshell && cd qshell
     wget http://devtools.qiniu.com/qshell-v2.3.4.zip
     unzip qshell-v2.3.4.zip
     mv qshell_linux_x64 qshell
