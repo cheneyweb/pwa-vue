@@ -1,5 +1,7 @@
 language: node_js
 node_js: 'node'
+env:
+  - BUCKET_NAME=pwa-vue
 #缓存
 cache: npm
 #指定分支
@@ -24,10 +26,10 @@ after_script:
   #- git push --force --quiet "https://${test_token}@${GH_REF}" master:${P_BRANCH}
   #推送至七牛云
   # - echo $TRAVIS_BUILD_DIR  #/home/travis/build/cheneyweb/pwa-vue
+  - echo ${TRAVIS_BUILD_DIR##*/}
   - cd ./ci
   - rm -f pagelist.txt
-  - bucketName="pwa-vue"
   - ./qshell account $AK $SK 457299596@qq.com
-  - ./qshell listbucket2 $bucketName -o pagelist.txt
-  - ./qshell batchdelete --force $bucketName -i pagelist.txt
+  - ./qshell listbucket2 $BUCKET_NAME -o pagelist.txt
+  - ./qshell batchdelete --force $BUCKET_NAME -i pagelist.txt
   - ./qshell qupload ./qshell.conf
