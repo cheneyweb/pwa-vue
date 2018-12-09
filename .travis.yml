@@ -23,7 +23,7 @@ before_script:
 #下载qshell
 script:
   - |
-    if [ ! -d "./qshell" ]; then
+    if [ ! -e "./qshell/qshell" ]; then
     mkdir qshell && cd qshell
     wget http://devtools.qiniu.com/qshell-v2.3.4.zip
     unzip qshell-v2.3.4.zip
@@ -50,4 +50,3 @@ after_script:
   - ./qshell listbucket2 $BUCKET_NAME -o pagelist.txt
   - ./qshell batchdelete --force $BUCKET_NAME -i pagelist.txt
   - ./qshell qupload2 --src-dir=$TRAVIS_BUILD_DIR/dist --bucket=$BUCKET_NAME --rescan_local=true --overwrite=true
-  
