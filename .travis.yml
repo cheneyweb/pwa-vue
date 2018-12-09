@@ -18,12 +18,9 @@ install:
 #执行构建
 before_script:
   - npm run build
-  - pwd
-  - ls -a
 #下载qshell
 script:
-  - |
-    if [ ! -e "./qshell/qshell" ]; then
+  - if [ ! -e "./qshell/qshell" ]; then
     rm -rf qshell && mkdir qshell
     cd qshell
     wget http://devtools.qiniu.com/qshell-v2.3.4.zip
@@ -45,9 +42,7 @@ after_script:
   #推送至七牛云
   # - cd ./ci
   - rm -f pagelist.txt
-  - pwd
-  - ls -a
   - ./qshell account $AK $SK 457299596@qq.com
   - ./qshell listbucket2 $BUCKET_NAME -o pagelist.txt
   - ./qshell batchdelete --force $BUCKET_NAME -i pagelist.txt
-  - ./qshell qupload2 --src-dir=$TRAVIS_BUILD_DIR/dist --bucket=$BUCKET_NAME -rescan-local=true --overwrite=true
+  - ./qshell qupload2 --src-dir=$TRAVIS_BUILD_DIR/dist --bucket=$BUCKET_NAME --rescan-local=true --overwrite=true
