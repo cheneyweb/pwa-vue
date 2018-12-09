@@ -7,6 +7,7 @@ cache:
   npm: true
   directories:
   - node_modules
+  - qshell
 #指定分支
 branches:
   only:
@@ -15,8 +16,18 @@ branches:
 install:
   - npm install
 #执行构建
-script:
+before_script:
   - npm run build
+#下载qshell
+script:
+  - if [[ ! -d "$qshell" ]]; then
+  - mkdir qshell && cd qshell
+  - wget http://devtools.qiniu.com/qshell-v2.3.4.zip
+  - tar xvzf qshell-v2.3.4.zip
+  - mv qshell_linux_x64 qshell
+  - else
+  - cd qshell
+  - fi
 #推送发布
 after_script:
   #推送至构建发布分支，以GithubPage展示
@@ -28,9 +39,9 @@ after_script:
   #- git commit -m "build with ci"
   #- git push --force --quiet "https://${test_token}@${GH_REF}" master:${P_BRANCH}
   #推送至七牛云
-  - cd ./ci
+  # - cd ./ci
   - rm -f pagelist.txt
   - ./qshell account $AK $SK 457299596@qq.com
   - ./qshell listbucket2 $BUCKET_NAME -o pagelist.txt
   - ./qshell batchdelete --force $BUCKET_NAME -i pagelist.txt
-  - ./qshell qupload2 -src-dir=$TRAVIS_BUILD_DIR/dist -bucket=$BUCKET_NAME -rescan_local=true -overwrite=true
+  - ./qshell qupload2 --src-dir=$TRAVIS_BUILD_DIR/dist --bucket=$BUCKET_NAME --rescan_local=true --overwrite=true
