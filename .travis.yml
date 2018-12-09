@@ -23,11 +23,9 @@ script:
   - |
     if [[ ! -d "./qshell" ]]; then
     mkdir qshell && cd qshell
-    pwd
     wget http://devtools.qiniu.com/qshell-v2.3.4.zip
     unzip qshell-v2.3.4.zip
     mv qshell_linux_x64 qshell
-    ll -a
     else
     cd qshell
     fi
@@ -44,7 +42,7 @@ after_script:
   #推送至七牛云
   # - cd ./ci
   - rm -f pagelist.txt
-  - ll -a
+  - ls -a
   - ./qshell account $AK $SK 457299596@qq.com
   - ./qshell listbucket2 $BUCKET_NAME -o pagelist.txt
   - ./qshell batchdelete --force $BUCKET_NAME -i pagelist.txt
