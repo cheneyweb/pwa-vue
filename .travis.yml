@@ -1,7 +1,7 @@
 language: node_js
 node_js: 'node'
 env:
-  - BUCKET_NAME=${TRAVIS_BUILD_DIR##*/}
+  - BUCKET_NAME=${TRAVIS_BUILD_DIR##*/} #当前目录名称与七牛云桶名称一致
 #缓存
 cache:
   npm: true
@@ -33,4 +33,4 @@ after_script:
   - ./qshell account $AK $SK 457299596@qq.com
   - ./qshell listbucket2 $BUCKET_NAME -o pagelist.txt
   - ./qshell batchdelete --force $BUCKET_NAME -i pagelist.txt
-  - ./qshell qupload ./qshell.conf
+  - ./qshell qupload2 -src-dir=$TRAVIS_BUILD_DIR/dist -bucket=$BUCKET_NAME -rescan_local=true -overwrite=true
