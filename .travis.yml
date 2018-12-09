@@ -50,4 +50,4 @@ after_script:
   - ./qshell account $AK $SK 457299596@qq.com
   - ./qshell listbucket2 $BUCKET_NAME -o pagelist.txt
   - ./qshell batchdelete --force $BUCKET_NAME -i pagelist.txt
-  - ./qshell qupload2 --src-dir=$TRAVIS_BUILD_DIR/dist --bucket=$BUCKET_NAME --rescan_local=true --overwrite=true
+  - ./qshell qupload2 --src-dir=$TRAVIS_BUILD_DIR/dist --bucket=$BUCKET_NAME -rescan-local=true --overwrite=true
