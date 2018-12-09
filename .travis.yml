@@ -18,10 +18,12 @@ install:
 #执行构建
 before_script:
   - npm run build
+  - pwd
+  - ls -a
 #下载qshell
 script:
   - |
-    if [[ ! -d "./qshell" ]]; then
+    if [ ! -d "./qshell" ]; then
     mkdir qshell && cd qshell
     wget http://devtools.qiniu.com/qshell-v2.3.4.zip
     unzip qshell-v2.3.4.zip
