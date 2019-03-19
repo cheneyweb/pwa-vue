@@ -1,7 +1,7 @@
 <template>
   <!-- <v-content> -->
   <v-layout d-flex justify-center fill-height>
-    <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="800">
+    <v-parallax src="http://img.xserver.top/wenming_loginbg.jpg" height="800">
       <div class="text-xs-center">建议您【添加到主屏幕】或【收藏】以便下次打开</div>
       <div class="text-xs-center">若添加失败，请在系统中对本浏览器应用允许开启【创建桌面快捷方式】权限</div>
       <!--登录/注册-->
@@ -93,10 +93,10 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-      <!--底部声明-->
+      <!--底部声明 ../img/icons/android-chrome-512x512.png -->
       <v-layout justify-center fill-height>
         <v-flex xs12 sm4>
-          <v-img src="../img/icons/android-chrome-512x512.png" max-height="512" max-width="512">
+          <v-img src="http://img.xserver.top/wenming_logo.png" max-height="512" max-width="512">
             <div class="text-xs-center">2018-2019 &copy; CheneyXu</div>
           </v-img>
         </v-flex>

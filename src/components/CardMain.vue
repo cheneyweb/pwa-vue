@@ -54,20 +54,6 @@
             </v-layout>
           </v-flex>
           <v-flex>
-            <!-- <v-card>
-                <h3 class="headline">地球文明</h3>
-                <h4>已更迭人类代数：
-                    <animate-number ref="num0" from="0" to="100" duration="2000" easing="easeInQuad"></animate-number>
-                </h4>
-                <h4>当代人类总人口：
-                    <animate-number ref="num1" from="0" to="1110" duration="2000" easing="easeInQuad"></animate-number>
-                </h4>
-                <h4>当代人类总资产：$
-                    <animate-number ref="num2" from="0" to="2000" duration="2000" easing="easeInQuad"></animate-number>
-                </h4>
-                <h4>下代人类更新时间剩余：{{timeCountdown}}(秒)</h4>
-            </v-card>-->
-            <!-- <v-flex slot="item" slot-scope="props"> -->
             <v-card>
               <v-card-title class="subheading font-weight-bold">地球文明</v-card-title>
               <v-divider></v-divider>
@@ -137,7 +123,7 @@
       </v-card-actions>-->
     </v-flex>
     <v-flex md3 xs12>
-      <canvas id="chart1" width="375" height="150"></canvas>
+      <canvas id="chart1" width="350" height="150"></canvas>
     </v-flex>
     <v-flex md3 hidden-xs-only>
       <canvas id="chart2" width="375" height="150"></canvas>
