@@ -8,7 +8,7 @@
             <img :src="item.avatar">
           </v-list-tile-avatar>
 
-          <v-list-tile-content>
+          <v-list-tile-content @click="dialog = true">
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             <v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>
           </v-list-tile-content>
@@ -22,10 +22,25 @@
         </v-list-tile>
       </v-list>
     </v-flex>
+    <v-dialog v-model="dialog" full-width>
+      <v-card>
+        <v-card-title class="headline">XX文明</v-card-title>
+        <v-card-text>文明描述</v-card-text>
+        <v-card-text>
+          <canvas id="mountNode" width="300" height="300"></canvas>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="success" @click="dialog = false">示好</v-btn>
+          <v-btn color="error" @click="dialog = false">侵略</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-layout>
 </template>
 
 <script>
+import F2 from "@antv/f2";
 export default {
   data: () => ({
     items: [
@@ -55,11 +70,109 @@ export default {
         avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
         action: "15 min"
       }
-    ]
+    ],
+    dialog: false
   }),
   methods: {
     diplomacy() {
-      console.log("外交");
+      this.chart1();
+    },
+    chart1() {
+      var data = [
+        {
+          item: "军事实力",
+          score: 90,
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/txPVjdlnLANzxmwZcchu.png"
+        },
+        {
+          item: "财务状况",
+          score: 80,
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/UMqgEqZdEcPhRekNGAdc.png"
+        },
+        {
+          item: "人口数量",
+          score: 70,
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/eBXrRufzPGlOisYGZwnv.png"
+        },
+        {
+          item: "外交数量",
+          score: 75,
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/zqqWMLXrFwnqhySFHVjZ.png"
+        },
+        {
+          item: "贫富差距",
+          score: 60,
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/DxcRoUZXpYOzAWKrlRvv.png"
+        }
+      ];
+      var chart = new F2.Chart({
+        id: "mountNode",
+        pixelRatio: window.devicePixelRatio
+      });
+
+      chart.coord("polar", {
+        radius: 0.8
+      });
+      chart.source(data, {
+        score: {
+          min: 0,
+          max: 100
+        }
+      });
+      chart.tooltip(false);
+      chart.axis("item", {
+        grid: {
+          lineDash: null,
+          top: true
+        },
+        label: null
+      });
+      chart.axis("score", {
+        label: null,
+        grid: function grid(text) {
+          if (text === "100") {
+            return {
+              lineDash: null
+            };
+          }
+          return {
+            lineWidth: 0
+          };
+        },
+        line: null
+      });
+
+      chart
+        .area()
+        .position("item*score")
+        .style({
+          fill: "r(0.45,0.55,0.15) 0:#fff 0.35:#DEF5F5 0.75:#C8EEEF 1:#A8E5E6",
+          fillOpacity: 100
+        });
+
+      data.map(function(obj) {
+        var offsetY =
+          obj.item === "风险偏好" || obj.item === "风险承受能力" ? -10 : 0;
+        chart.guide().html({
+          position: [obj.item, 130],
+          html:
+            '<div style="width: 80px;height: 24px;text-align: center">' +
+            '<img src="' +
+            obj.img +
+            '" style="width: 24px;height: 24px;" />' +
+            '<div style="color: #808080;transform:scale(0.8, 0.8);font-size:12px;">' +
+            obj.item +
+            "</div>" +
+            "</div></div>",
+          offsetY: offsetY
+        });
+      });
+      chart.render();
     }
   }
 };

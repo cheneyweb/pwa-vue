@@ -4,7 +4,7 @@
       <v-card>
         <v-img
           class="white--text"
-          src="http://img.xserver.top/wenming_poor.jpg"
+          src="http://img.xserver.top/wenming_poor4.jpg"
           aspect-ratio="2.5"
           max-height="100"
         >
@@ -31,7 +31,7 @@
                 <animate-number
                   ref="num1"
                   from="0"
-                  to="0"
+                  to="100"
                   duration="2000"
                   easing="easeInQuad"
                   :formatter="formatterAnimateNumber"
@@ -49,7 +49,7 @@
     </v-flex>
     <v-flex md4 xs4>
       <v-card>
-        <v-img src="http://img.xserver.top/wenming_middle.jpg" aspect-ratio="2.5" max-height="100"></v-img>
+        <v-img src="http://img.xserver.top/wenming_middle4.jpg" aspect-ratio="2.5" max-height="100"></v-img>
         <v-card-title primary-title>
           <div>
             <h3 class="headline mb-0">中产</h3>
@@ -83,7 +83,7 @@
     </v-flex>
     <v-flex md4 xs4>
       <v-card>
-        <v-img src="http://img.xserver.top/wenming_rich.webp" aspect-ratio="2.5" max-height="100"></v-img>
+        <v-img src="http://img.xserver.top/wenming_rich4.jpg" aspect-ratio="2.5" max-height="100"></v-img>
         <v-card-title primary-title>
           <div>
             <h3 class="headline mb-0">富人</h3>

@@ -135,8 +135,6 @@
 <script>
 // import NumberGrow from "./components/NumberGrow";
 import F2 from "@antv/f2";
-F2.track(false);
-
 export default {
   components: {
     // NumberGrow
