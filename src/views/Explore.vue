@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-list subheader three-line>
         <v-subheader>外星文明</v-subheader>
-        <v-list-tile v-for="item in items" :key="item.title" avatar ripple @click="diplomacy">
+        <v-list-tile v-for="item in items" :key="item.title" avatar ripple @click="diplomacy(item)">
           <v-list-tile-avatar>
             <img :src="item.avatar">
           </v-list-tile-avatar>
@@ -24,7 +24,7 @@
     </v-flex>
     <v-dialog v-model="dialog" full-width>
       <v-card>
-        <v-card-title class="headline">XX文明</v-card-title>
+        <v-card-title class="headline">{{item.title}}</v-card-title>
         <v-card-text>文明描述</v-card-text>
         <v-card-text>
           <canvas id="mountNode" width="300" height="300"></canvas>
@@ -71,11 +71,13 @@ export default {
         action: "15 min"
       }
     ],
+    item: {},
     dialog: false
   }),
   methods: {
-    diplomacy() {
+    diplomacy(item) {
       this.chart1();
+      this.item = item;
     },
     chart1() {
       var data = [
