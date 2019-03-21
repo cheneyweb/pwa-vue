@@ -3,7 +3,10 @@
     <v-layout wrap row>
       <v-flex>
         <v-container>
-          <v-btn dark color="teal" @click="logout">登出/切换文明</v-btn>
+          <v-btn large flat icon @click="setting">
+            <v-icon>settings</v-icon>
+          </v-btn>
+          <v-btn dark color="teal" @click="logout">登出文明</v-btn>
         </v-container>
       </v-flex>
       <v-flex>
@@ -21,6 +24,34 @@
         </v-container>
       </v-flex>
     </v-layout>
+    <v-dialog v-model="dialog">
+      <v-card>
+        <v-card-title>
+          <span class="headline">文明设置</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container grid-list-md>
+            <v-layout wrap>
+              <v-flex xs12 sm6 md4>
+                <v-text-field label="文明名称*" required></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field label="文明密码*" type="password" required></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6>
+                <v-text-field label="文明描述*" required></v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-container>
+          <!-- <small>*必填字段</small> -->
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" flat @click="dialog = false">关闭</v-btn>
+          <v-btn color="blue darken-1" flat @click="dialog = false">保存</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-navigation-drawer>
 </template>
 
@@ -28,7 +59,9 @@
 export default {
   components: {},
   data() {
-    return {};
+    return {
+      dialog: false
+    };
   },
   computed: {
     drawer: {
@@ -44,6 +77,9 @@ export default {
     logout() {
       localStorage.clear();
       this.$router.push({ path: "/" });
+    },
+    setting() {
+      this.dialog = true;
     }
   }
   // computed: {
