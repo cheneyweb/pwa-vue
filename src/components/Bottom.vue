@@ -1,15 +1,15 @@
 <template>
   <v-container v-if="isShowBottom" pt-0>
-    <v-bottom-nav :active.sync="bottomNav" color="#4DBA87" :value="true" fixed height="42">
-      <v-btn dark to="/home">
+    <v-bottom-nav :active.sync="bottomNav" :value="true" fixed height="42">
+      <v-btn flat color="teal" to="/home">
         <span>文明进程</span>
         <v-icon>history</v-icon>
       </v-btn>
-      <v-btn dark to="/stat">
+      <v-btn flat color="teal" to="/stat">
         <span>文明数据</span>
         <v-icon>trending_up</v-icon>
       </v-btn>
-      <v-btn dark to="/explore">
+      <v-btn flat color="teal" to="/explore">
         <span>文明探索</span>
         <v-icon>search</v-icon>
       </v-btn>
@@ -28,7 +28,7 @@ export default {
   computed: {
     isShowBottom() {
       return this.$route.path == "/" ? false : true;
-    },
+    }
     // color() {
     //   switch (this.bottomNav) {
     //     case 0:
