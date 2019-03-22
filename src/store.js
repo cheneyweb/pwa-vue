@@ -8,11 +8,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    drawer: false
+    drawer: false,
+    banScorll: false
   },
   mutations: {
     changeDrawer(state, params) {
       state.drawer = params
+    },
+    changeBanScorll(state, params) {
+      state.banScorll = params
     }
   },
   actions: {

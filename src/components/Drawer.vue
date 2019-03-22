@@ -18,6 +18,62 @@
       </v-flex>
       <v-flex>
         <v-container>
+          <v-card color="error">
+            <v-card-text>三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾</v-card-text>
+          </v-card>
+        </v-container>
+      </v-flex>
+      <v-flex>
+        <v-container>
+          <v-card color="error">
+            <v-card-text>三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾</v-card-text>
+          </v-card>
+        </v-container>
+      </v-flex>
+      <v-flex>
+        <v-container>
+          <v-card color="error">
+            <v-card-text>三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾</v-card-text>
+          </v-card>
+        </v-container>
+      </v-flex>
+      <v-flex>
+        <v-container>
+          <v-card color="error">
+            <v-card-text>三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾</v-card-text>
+          </v-card>
+        </v-container>
+      </v-flex>
+      <v-flex>
+        <v-container>
+          <v-card color="error">
+            <v-card-text>三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾</v-card-text>
+          </v-card>
+        </v-container>
+      </v-flex>
+      <v-flex>
+        <v-container>
+          <v-card color="error">
+            <v-card-text>三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾</v-card-text>
+          </v-card>
+        </v-container>
+      </v-flex>
+      <v-flex>
+        <v-container>
+          <v-card color="error">
+            <v-card-text>三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾</v-card-text>
+          </v-card>
+        </v-container>
+      </v-flex>
+      <v-flex>
+        <v-container>
+          <v-card color="error">
+            <v-card-text>三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾</v-card-text>
+          </v-card>
+        </v-container>
+      </v-flex>
+      <v-flex>
+        <v-container>
           <v-card color="info">
             <v-card-text>您的文明人口持续增长中</v-card-text>
           </v-card>
@@ -69,7 +125,9 @@ export default {
         return this.$store.state.drawer;
       },
       set(val) {
+        
         this.$store.commit("changeDrawer", val);
+        this.$store.commit("changeBanScorll", val);
       }
     }
   },

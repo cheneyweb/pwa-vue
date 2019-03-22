@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :class="{hidden:banScorll}">
     <v-content>
       <Layout/>
     </v-content>
@@ -12,6 +12,27 @@ export default {
   name: "App",
   components: {
     Layout
+  },
+  data() {
+    return {
+    }
+  },
+  computed:{
+    banScorll: {
+      get() {
+        return this.$store.state.banScorll;
+      }
+    }
   }
+  
 };
 </script>
+<style>
+.hidden {
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+</style>
+

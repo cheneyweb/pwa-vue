@@ -1,5 +1,6 @@
 <template>
   <!-- <v-container fluid grid-list-sm> -->
+  
   <v-layout row wrap>
     <v-btn fab fixed top right dark color="teal" @click="changeDrawer">
       <!-- <v-badge overlap> -->
@@ -49,6 +50,7 @@ export default {
   methods: {
     changeDrawer() {
       this.$store.commit("changeDrawer", !this.$store.state.drawer);
+      this.$store.commit("changeBanScorll", !this.$store.state.banScorll);
     }
   }
 };
