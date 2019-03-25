@@ -43,15 +43,31 @@ export default {
     SliderTax,
     SelectExpend
   },
-  data: () => ({
+  /* data: () => ({
     snackbar: true
-  }),
-  created: function() {},
+  }), */
+  created() {
+   document.documentElement = 200
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  data() {
+    return {
+      snackbar: true
+    }
+  },
+  
   methods: {
     changeDrawer() {
       this.$store.commit("changeDrawer", !this.$store.state.drawer);
       this.$store.commit("changeBanScorll", !this.$store.state.banScorll);
-    }
+    },
+    handleScroll () {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      console.log(scrollTop)
+    },
+
   }
 };
 </script>

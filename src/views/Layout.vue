@@ -1,7 +1,8 @@
 <template>
   <div>
-    <!-- <Header/> -->
-    <router-view/>
+    <Home v-show="showMenu == 0"></Home>
+    <Stat v-show="showMenu == 1"></Stat>
+    <Explore v-show="showMenu == 2"></Explore>
     <Bottom/>
     <Drawer/>
   </div>
@@ -11,14 +12,27 @@
 import Header from "../components/Header";
 import Drawer from "../components/Drawer";
 import Bottom from "../components/Bottom";
+import Home from "./Home";
+import Stat from './Stat.vue'
+import Explore from './Explore.vue'
 export default {
   components: {
     Header,
     Drawer,
-    Bottom
+    Bottom,
+    Home,
+    Stat,
+    Explore,
   },
   data() {
-    return {};
+    return {
+      showMenu: 0
+    };
+  },
+  methods: {
+    showView(param) {
+      this.showMenu = param
+    }
   }
   // computed: {
   //   binding() {

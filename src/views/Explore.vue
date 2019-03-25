@@ -42,7 +42,7 @@
 <script>
 import F2 from "@antv/f2";
 export default {
-  data: () => ({
+  /* data: () => ({
     items: [
       {
         active: true,
@@ -73,7 +73,83 @@ export default {
     ],
     item: {},
     dialog: false
-  }),
+  }), */
+  data() {
+    return {
+      items: [
+      {
+        active: true,
+        title: "火星文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+        action: "15 min"
+      },
+      {
+        active: true,
+        title: "赛亚人文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+        action: "15 min"
+      },
+      {
+        title: "三体文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+        action: "15 min"
+      },
+      {
+        title: "三体文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+        action: "15 min"
+      },
+      {
+        title: "三体文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+        action: "15 min"
+      },
+      {
+        title: "三体文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+        action: "15 min"
+      },
+      {
+        title: "三体文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+        action: "15 min"
+      },
+      {
+        title: "三体文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+        action: "15 min"
+      },
+      {
+        title: "三体文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+        action: "15 min"
+      },
+      {
+        title: "三体文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+        action: "15 min"
+      },
+      {
+        title: "阿凡达文明",
+        subtitle: "人口1000",
+        avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+        action: "15 min"
+      }
+    ],
+    item: {},
+    dialog: false
+    }
+  },
   methods: {
     diplomacy(item) {
       this.chart1();

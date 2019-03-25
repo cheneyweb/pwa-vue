@@ -1,7 +1,7 @@
 <template>
   <v-app :class="{hidden:banScorll}">
     <v-content>
-      <Layout/>
+      <router-view /> 
     </v-content>
   </v-app>
 </template>
