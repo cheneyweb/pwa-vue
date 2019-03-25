@@ -1,6 +1,6 @@
 <template>
   <v-container v-if="isShowBottom" pt-0>
-    <v-bottom-nav :active.sync="bottomNav" :value="true" fixed height="42">
+    <v-bottom-nav :active.sync="bottomNav" :value="true" fixed>
       <v-btn flat color="teal" @click="showFatherView(0)">
         <span>文明进程</span>
         <v-icon>history</v-icon>
@@ -28,7 +28,7 @@ export default {
   computed: {
     isShowBottom() {
       return this.$route.path == "/" ? false : true;
-    },
+    }
     // color() {
     //   switch (this.bottomNav) {
     //     case 0:
@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     showFatherView(param) {
-      this.$parent.showView(param);  
+      this.$parent.showView(param);
     }
   }
 };
