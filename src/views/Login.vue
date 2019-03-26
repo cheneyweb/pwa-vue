@@ -3,7 +3,7 @@
   <v-layout d-flex justify-center fill-height>
     <v-parallax src="http://img.xserver.top/wenming_loginbg.jpg" height="800">
       <div class="text-xs-center">建议您【添加到主屏幕】或【收藏】以便下次打开</div>
-      <div class="text-xs-center">若添加失败，请在系统中对本浏览器应用允许开启【创建桌面快捷方式】权限</div>
+      <div class="text-xs-center">浏览器需开启【创建桌面快捷方式】权限</div>
       <!--登录/注册-->
       <v-layout align-center justify-center fill-height>
         <v-flex xs12 sm4 mr-1>

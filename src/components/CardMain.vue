@@ -23,7 +23,7 @@
               <!-- <v-card  max-width="400" elevation-20> -->
               <v-flex xs12 pb-1>
                 <code>文明法则</code>
-                <span class="caption font-weight-bold">：三种阶层人类相互结合，父母阶层越高，后代阶层越高</span>
+                <span class="caption font-weight-bold">：穷中富相互结合，父母阶层越高，后代阶层越高</span>
               </v-flex>
               <v-flex xs12 pb-1>
                 <code>文明法则</code>
