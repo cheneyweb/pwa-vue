@@ -9,7 +9,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     drawer: false,
-    banScorll: false
+    banScorll: false,
+    homeScroll: 0,
+    statScroll: 0,
+    exploreScroll: 0
   },
   mutations: {
     changeDrawer(state, params) {
@@ -17,6 +20,15 @@ export default new Vuex.Store({
     },
     changeBanScorll(state, params) {
       state.banScorll = params
+    },
+    setHomeScroll(state, params) {
+      state.homeScroll = params
+    },
+    setExploreScroll(state, params) {
+      state.exploreScroll = params
+    },
+    setStatScroll(state, params) {
+      state.statScroll = params
     }
   },
   actions: {

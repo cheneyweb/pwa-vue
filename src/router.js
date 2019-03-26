@@ -2,10 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Layout from './views/Layout.vue'
-/* import Home from './views/Home.vue'
+import Home from './views/Home.vue'
 import Stat from './views/Stat.vue'
-
-import Explore from './views/Explore.vue' */
+import Explore from './views/Explore.vue'
 
 Vue.use(Router)
 
@@ -19,7 +18,24 @@ export default new Router({
     {
       path: '/layout',
       name: 'layout',
-      component: Layout
+      component: Layout,
+      children: [
+        {
+          path: 'home',
+          name: 'home',
+          component: Home
+        },
+        {
+          path: 'stat',
+          name: 'stat',
+          component: Stat
+        },
+        {
+          path: 'explore',
+          name: 'explore',
+          component: Explore
+        }
+      ]
     },
     {
       path: '/about',

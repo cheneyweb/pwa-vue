@@ -35,8 +35,24 @@ import CardMain from "../components/CardMain";
 import CardLevel from "../components/CardLevel";
 import SliderTax from "../components/SliderTax";
 import SelectExpend from "../components/SelectExpend";
+import { log } from 'util';
 
 export default {
+  beforeRouteEnter(to, from, next) {
+    /* console.log(this, 'beforeRouteEnter'); // undefined
+    console.log(to, '组件独享守卫beforeRouteEnter第一个参数');
+    console.log(from, '组件独享守卫beforeRouteEnter第二个参数');
+    console.log(next, '组件独享守卫beforeRouteEnter第三个参数'); */
+    next(vm => {
+      //因为当钩子执行前，组件实例还没被创建
+      // vm 就是当前组件的实例相当于上面的 this，所以在 next 方法里你就可以把 vm 当 this 来用了。
+      //console.log(vm);//当前组件的实例
+      if (localStorage.dayCompany == 'dayCompany') {
+        //localStorage.removeItem('dayCompany')
+        
+      }
+    });
+  },
   components: {
     CardMain,
     CardLevel,
@@ -47,14 +63,18 @@ export default {
     snackbar: true
   }), */
   created() {
-   document.documentElement = 200
+    
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
+    //console.log(this.$store.state.homeScroll);
+    document.documentElement.scrollTop = this.$store.state.homeScroll
   },
   data() {
     return {
-      snackbar: true
+      snackbar: true,
+      scrollNum: 0,
+      homeScrollNum: 0
     }
   },
   
@@ -64,10 +84,13 @@ export default {
       this.$store.commit("changeBanScorll", !this.$store.state.banScorll);
     },
     handleScroll () {
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      console.log(scrollTop)
+      this.homeScrollNum = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
     },
-
+    
+  },
+  beforeDestroy() {
+    //console.log('scroll='+this.homeScrollNum);
+    this.$store.commit('setHomeScroll',this.homeScrollNum)
   }
 };
 </script>

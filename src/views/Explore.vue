@@ -74,6 +74,9 @@ export default {
     item: {},
     dialog: false
   }), */
+  created() {
+    //console.log(document);
+  },
   data() {
     return {
       items: [
@@ -147,8 +150,13 @@ export default {
       }
     ],
     item: {},
-    dialog: false
+    dialog: false,
+    exploreScrollNum: 0
     }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+    document.documentElement.scrollTop = this.$store.state.exploreScroll
   },
   methods: {
     diplomacy(item) {
@@ -251,7 +259,15 @@ export default {
         });
       });
       chart.render();
-    }
+    },
+    handleScroll () {
+      this.exploreScrollNum = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      //console.log(scrollTop)
+    },
+  },
+  beforeDestroy() {
+    //console.log('scroll='+this.homeScrollNum);
+    this.$store.commit('setExploreScroll',this.exploreScrollNum)
   }
 };
 </script>

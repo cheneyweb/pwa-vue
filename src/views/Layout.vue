@@ -1,8 +1,9 @@
 <template>
   <div>
-    <Home v-show="showMenu == 0"></Home>
+    <!-- <Home v-show="showMenu == 0"></Home>
     <Stat v-show="showMenu == 1"></Stat>
-    <Explore v-show="showMenu == 2"></Explore>
+    <Explore v-show="showMenu == 2"></Explore> -->
+    <router-view></router-view>
     <Bottom/>
     <Drawer/>
   </div>
