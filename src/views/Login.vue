@@ -76,7 +76,7 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="primary" @click="reg" to="/layout">进入</v-btn>
+              <v-btn color="primary" @click="reg" to="/layout/home">进入</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>-->
@@ -134,7 +134,7 @@ export default {
   created: function() {
     // 身份认证有效期内，直接跳转
     if (localStorage.getItem("token")) {
-      this.$router.push({ path: "/layout" });
+      this.$router.push({ path: "/layout/home" });
     }
   },
   methods: {
@@ -177,7 +177,7 @@ export default {
       } else {
         this.dialog = false;
         localStorage.setItem("token", res.res);
-        this.$router.push({ path: "/layout" });
+        this.$router.push({ path: "/layout/home" });
       }
     },
     // 登录
@@ -192,7 +192,7 @@ export default {
           this.errMsg = res.res;
         } else {
           localStorage.setItem("token", res.res);
-          this.$router.push({ path: "/layout" });
+          this.$router.push({ path: "/layout/home" });
         }
       } else {
         this.err = true;
