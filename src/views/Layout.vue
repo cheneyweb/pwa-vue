@@ -2,7 +2,7 @@
   <div>
     <!-- <Home v-show="showMenu == 0"></Home>
     <Stat v-show="showMenu == 1"></Stat>
-    <Explore v-show="showMenu == 2"></Explore> -->
+    <Explore v-show="showMenu == 2"></Explore>-->
     <router-view></router-view>
     <Bottom/>
     <Drawer/>
@@ -13,28 +13,28 @@
 import Header from "../components/Header";
 import Drawer from "../components/Drawer";
 import Bottom from "../components/Bottom";
-import Home from "./Home";
-import Stat from './Stat.vue'
-import Explore from './Explore.vue'
+// import Home from "./Home";
+// import Stat from "./Stat.vue";
+// import Explore from "./Explore.vue";
 export default {
   components: {
     Header,
     Drawer,
     Bottom,
-    Home,
-    Stat,
-    Explore,
+    // Home,
+    // Stat,
+    // Explore
   },
-  data() {
-    return {
-      showMenu: 0
-    };
-  },
-  methods: {
-    showView(param) {
-      this.showMenu = param
-    }
-  }
+  // data() {
+  //   return {
+  //     showMenu: 0
+  //   };
+  // },
+  // methods: {
+  //   showView(param) {
+  //     this.showMenu = param;
+  //   }
+  // }
   // computed: {
   //   binding() {
   //     const binding = {};

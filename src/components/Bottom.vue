@@ -1,11 +1,11 @@
 <template>
-  <v-container v-if="isShowBottom" pt-0>
+  <v-container>
     <v-bottom-nav :active.sync="bottomNav" :value="true" fixed>
-      <v-btn flat color="teal" to="home" >
+      <v-btn flat color="teal" to="home">
         <span>文明进程</span>
         <v-icon>history</v-icon>
       </v-btn>
-      <v-btn flat color="teal" to="stat" >
+      <v-btn flat color="teal" to="stat">
         <span>文明数据</span>
         <v-icon>trending_up</v-icon>
       </v-btn>
@@ -25,24 +25,21 @@ export default {
     };
   },
   created: function() {},
-  computed: {
-    isShowBottom() {
-      return this.$route.path == "/" ? false : true;
-    },
-  
-    // color() {
-    //   switch (this.bottomNav) {
-    //     case 0:
-    //       return "teal";
-    //     case 1:
-    //       return "cyan darken-2";
-    //     case 2:
-    //       return "brown";
-    //   }
-    // }
-  },
-  methods: {
-   
-  }
+  // computed: {
+  //   isShowBottom() {
+  //     return this.$route.path == "/" ? false : true;
+  //   },
+  //   // color() {
+  //   //   switch (this.bottomNav) {
+  //   //     case 0:
+  //   //       return "teal";
+  //   //     case 1:
+  //   //       return "cyan darken-2";
+  //   //     case 2:
+  //   //       return "brown";
+  //   //   }
+  //   // }
+  // },
+  methods: {}
 };
 </script>

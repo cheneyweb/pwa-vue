@@ -1,6 +1,6 @@
 <template>
   <!-- <v-container fluid grid-list-sm> -->
-  
+
   <v-layout row wrap>
     <v-btn fab fixed top right dark color="teal" @click="changeDrawer">
       <!-- <v-badge overlap> -->
@@ -23,7 +23,8 @@
     <v-flex xs12>
       <SelectExpend/>
     </v-flex>
-    <v-snackbar v-model="snackbar" top auto-height color="error">三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾
+    <v-snackbar v-model="snackbar" top auto-height color="error">
+      三体文明发现了您，请尽快提升您的科技，否则您的文明将有灭顶之灾
       <v-btn color="gray" flat @click="snackbar = false">关闭</v-btn>
     </v-snackbar>
   </v-layout>
@@ -35,7 +36,6 @@ import CardMain from "../components/CardMain";
 import CardLevel from "../components/CardLevel";
 import SliderTax from "../components/SliderTax";
 import SelectExpend from "../components/SelectExpend";
-import { log } from 'util';
 
 export default {
   beforeRouteEnter(to, from, next) {
@@ -47,9 +47,8 @@ export default {
       //因为当钩子执行前，组件实例还没被创建
       // vm 就是当前组件的实例相当于上面的 this，所以在 next 方法里你就可以把 vm 当 this 来用了。
       //console.log(vm);//当前组件的实例
-      if (localStorage.dayCompany == 'dayCompany') {
+      if (localStorage.dayCompany == "dayCompany") {
         //localStorage.removeItem('dayCompany')
-        
       }
     });
   },
@@ -59,38 +58,32 @@ export default {
     SliderTax,
     SelectExpend
   },
-  /* data: () => ({
-    snackbar: true
-  }), */
-  created() {
-    
-  },
+  created() {},
   mounted() {
-    window.addEventListener('scroll', this.handleScroll)
-    //console.log(this.$store.state.homeScroll);
-    document.documentElement.scrollTop = this.$store.state.homeScroll
+    window.addEventListener("scroll", this.handleScroll);
+    document.documentElement.scrollTop = this.$store.state.homeScroll;
   },
   data() {
     return {
       snackbar: true,
-      scrollNum: 0,
       homeScrollNum: 0
-    }
+    };
   },
-  
+
   methods: {
     changeDrawer() {
       this.$store.commit("changeDrawer", !this.$store.state.drawer);
       this.$store.commit("changeBanScorll", !this.$store.state.banScorll);
     },
-    handleScroll () {
-      this.homeScrollNum = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-    },
-    
+    handleScroll() {
+      this.homeScrollNum =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+    }
   },
   beforeDestroy() {
-    //console.log('scroll='+this.homeScrollNum);
-    this.$store.commit('setHomeScroll',this.homeScrollNum)
+    this.$store.commit("setHomeScroll", this.homeScrollNum);
   }
 };
 </script>
