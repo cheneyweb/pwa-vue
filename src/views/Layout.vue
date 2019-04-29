@@ -1,13 +1,13 @@
 <template>
-  <div v-cloak>
+  <div>
     <!-- <transition> -->
-      <Home v-show="showMenu == 0"></Home>
+    <Home v-show="showMenu == 0"></Home>
     <!-- </transition> -->
     <!-- <transition> -->
-      <Stat v-show="showMenu == 1"></Stat>
+    <Stat v-show="showMenu == 1"></Stat>
     <!-- </transition> -->
     <!-- <transition> -->
-      <Explore v-show="showMenu == 2"></Explore>
+    <Explore v-show="showMenu == 2"></Explore>
     <!-- </transition> -->
     <!-- <router-view></router-view> -->
     <Bottom/>
@@ -59,8 +59,6 @@ export default {
           this.$store.commit("setExploreScroll", this.scrollNum);
           break;
       }
-      // 显示当前页面
-      this.showMenu = param;
       // 显示页面滚动条位置恢复
       switch (param) {
         case 0:
@@ -79,6 +77,8 @@ export default {
           }, 0);
           break;
       }
+      // 显示当前页面
+      this.showMenu = param;
     }
   }
   // computed: {
@@ -92,7 +92,4 @@ export default {
 </script>
 
 <style>
-[v-cloak] {
-  display: none;
-}
 </style>
