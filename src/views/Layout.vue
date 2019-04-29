@@ -1,15 +1,11 @@
 <template>
   <div>
-    <!-- <transition> -->
-    <Home v-show="showMenu == 0"></Home>
-    <!-- </transition> -->
-    <!-- <transition> -->
+    <!-- <Home v-show="showMenu == 0"></Home>
     <Stat v-show="showMenu == 1"></Stat>
-    <!-- </transition> -->
-    <!-- <transition> -->
-    <Explore v-show="showMenu == 2"></Explore>
-    <!-- </transition> -->
-    <!-- <router-view></router-view> -->
+    <Explore v-show="showMenu == 2"></Explore>-->
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <Bottom/>
     <Drawer/>
   </div>
@@ -62,19 +58,25 @@ export default {
       // 显示页面滚动条位置恢复
       switch (param) {
         case 0:
-          setTimeout(() => {
+          this.$nextTick(() => {
+            // setTimeout(() => {
             document.documentElement.scrollTop = this.$store.state.homeScroll;
-          }, 0);
+            // }, 100);
+          });
           break;
         case 1:
-          setTimeout(() => {
+          this.$nextTick(() => {
+            // setTimeout(() => {
             document.documentElement.scrollTop = this.$store.state.statScroll;
-          }, 0);
+            // }, 0);
+          });
           break;
         case 2:
-          setTimeout(() => {
+          this.$nextTick(() => {
+            // setTimeout(() => {
             document.documentElement.scrollTop = this.$store.state.exploreScroll;
-          }, 0);
+            // }, 0);
+          });
           break;
       }
       // 显示当前页面
