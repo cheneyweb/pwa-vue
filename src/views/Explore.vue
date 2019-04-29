@@ -154,10 +154,10 @@ export default {
       exploreScrollNum: 0
     };
   },
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-    document.documentElement.scrollTop = this.$store.state.exploreScroll;
-  },
+  // mounted() {
+  //   window.addEventListener("scroll", this.handleScroll);
+  //   document.documentElement.scrollTop = this.$store.state.exploreScroll;
+  // },
   methods: {
     diplomacy(item) {
       this.chart1();
@@ -260,15 +260,15 @@ export default {
       });
       chart.render();
     },
-    handleScroll() {
-      this.exploreScrollNum =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
-    }
+    // handleScroll() {
+    //   this.exploreScrollNum =
+    //     window.pageYOffset ||
+    //     document.documentElement.scrollTop ||
+    //     document.body.scrollTop;
+    // }
   },
-  beforeDestroy() {
-    this.$store.commit("setExploreScroll", this.exploreScrollNum);
-  }
+  // beforeDestroy() {
+  //   this.$store.commit("setExploreScroll", this.exploreScrollNum);
+  // }
 };
 </script>

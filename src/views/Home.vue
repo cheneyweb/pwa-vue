@@ -59,10 +59,10 @@ export default {
     SelectExpend
   },
   created() {},
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-    document.documentElement.scrollTop = this.$store.state.homeScroll;
-  },
+  // mounted() {
+  //   window.addEventListener("scroll", this.handleScroll);
+  //   document.documentElement.scrollTop = this.$store.state.homeScroll;
+  // },
   data() {
     return {
       snackbar: true,
@@ -74,17 +74,17 @@ export default {
     changeDrawer() {
       this.$store.commit("changeDrawer", !this.$store.state.drawer);
       this.$store.commit("changeBanScorll", !this.$store.state.banScorll);
-    },
-    handleScroll() {
-      this.homeScrollNum =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
     }
-  },
-  beforeDestroy() {
-    this.$store.commit("setHomeScroll", this.homeScrollNum);
+    // handleScroll() {
+    //   this.homeScrollNum =
+    //     window.pageYOffset ||
+    //     document.documentElement.scrollTop ||
+    //     document.body.scrollTop;
+    // }
   }
+  // beforeDestroy() {
+  //   this.$store.commit("setHomeScroll", this.homeScrollNum);
+  // }
 };
 </script>
 

@@ -14,20 +14,20 @@ export default {
       statScrollNum: 0
     };
   },
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-    document.documentElement.scrollTop = this.$store.state.statScroll;
-  },
+  // mounted() {
+  //   window.addEventListener("scroll", this.handleScroll);
+  //   document.documentElement.scrollTop = this.$store.state.statScroll;
+  // },
   methods: {
-    handleScroll() {
-      this.statScrollNum =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
-    }
-  },
-  beforeDestroy() {
-    this.$store.commit("setStatScroll", this.statScrollNum);
+    // handleScroll() {
+    //   this.statScrollNum =
+    //     window.pageYOffset ||
+    //     document.documentElement.scrollTop ||
+    //     document.body.scrollTop;
+    // }
   }
+  // beforeDestroy() {
+  //   this.$store.commit("setStatScroll", this.statScrollNum);
+  // }
 };
 </script>

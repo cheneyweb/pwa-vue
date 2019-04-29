@@ -1,15 +1,18 @@
 <template>
   <v-container>
     <v-bottom-nav :active.sync="bottomNav" :value="true" fixed>
-      <v-btn flat color="teal" to="home">
+      <v-btn flat color="teal" @click="showFatherView(0)">
+        <!--to="home"-->
         <span>文明进程</span>
         <v-icon>history</v-icon>
       </v-btn>
-      <v-btn flat color="teal" to="stat">
+      <v-btn flat color="teal" @click="showFatherView(1)">
+        <!--to="stat"-->
         <span>文明数据</span>
         <v-icon>trending_up</v-icon>
       </v-btn>
-      <v-btn flat color="teal" to="explore">
+      <v-btn flat color="teal" @click="showFatherView(2)">
+        <!--to="explore"-->
         <span>文明探索</span>
         <v-icon>search</v-icon>
       </v-btn>
@@ -40,6 +43,10 @@ export default {
   //   //   }
   //   // }
   // },
-  methods: {}
+  methods: {
+    showFatherView(param) {
+      this.$parent.showView(param);
+    }
+  }
 };
 </script>
