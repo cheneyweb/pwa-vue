@@ -1,8 +1,14 @@
 <template>
-  <div>
-    <Home v-show="showMenu == 0"></Home>
-    <Stat v-show="showMenu == 1"></Stat>
-    <Explore v-show="showMenu == 2"></Explore>
+  <div v-cloak>
+    <transition>
+      <Home v-show="showMenu == 0"></Home>
+    </transition>
+    <transition>
+      <Stat v-show="showMenu == 1"></Stat>
+    </transition>
+    <transition>
+      <Explore v-show="showMenu == 2"></Explore>
+    </transition>
     <!-- <router-view></router-view> -->
     <Bottom/>
     <Drawer/>
@@ -86,4 +92,7 @@ export default {
 </script>
 
 <style>
+[v-cloak] {
+  display: none;
+}
 </style>
