@@ -1,14 +1,14 @@
 <template>
   <div v-cloak>
-    <transition>
+    <!-- <transition> -->
       <Home v-show="showMenu == 0"></Home>
-    </transition>
-    <transition>
+    <!-- </transition> -->
+    <!-- <transition> -->
       <Stat v-show="showMenu == 1"></Stat>
-    </transition>
-    <transition>
+    <!-- </transition> -->
+    <!-- <transition> -->
       <Explore v-show="showMenu == 2"></Explore>
-    </transition>
+    <!-- </transition> -->
     <!-- <router-view></router-view> -->
     <Bottom/>
     <Drawer/>
