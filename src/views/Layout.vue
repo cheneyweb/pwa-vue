@@ -13,19 +13,19 @@
 
 <script>
 // import Header from "../components/Header";
-import Drawer from "../components/Drawer";
-import Bottom from "../components/Bottom";
+import Bottom from "./Bottom";
 import Home from "./Home";
 import Stat from "./Stat.vue";
 import Explore from "./Explore.vue";
+import Drawer from "./Drawer";
 export default {
   components: {
     // Header,
-    Drawer,
     Bottom,
     Home,
     Stat,
-    Explore
+    Explore,
+    Drawer
   },
   data() {
     return {
