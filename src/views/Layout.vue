@@ -32,7 +32,12 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("scroll", () => {
+      this.scrollNum =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+    });
   },
   methods: {
     showView(param) {
@@ -68,12 +73,6 @@ export default {
           }, 0);
           break;
       }
-    },
-    handleScroll() {
-      this.scrollNum =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
     }
   }
   // computed: {

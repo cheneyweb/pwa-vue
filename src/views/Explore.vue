@@ -151,7 +151,7 @@ export default {
       ],
       item: {},
       dialog: false,
-      exploreScrollNum: 0
+      // exploreScrollNum: 0
     };
   },
   // mounted() {

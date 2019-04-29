@@ -11,7 +11,7 @@ export default {
   },
   data() {
     return {
-      statScrollNum: 0
+      // statScrollNum: 0
     };
   },
   // mounted() {
