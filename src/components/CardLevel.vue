@@ -16,9 +16,9 @@
             </v-layout>
           </v-container>
         </v-img>
-        <v-card-title primary-title>
+        <v-card-title primary-title class="py-2">
           <div>
-            <h3 class="headline mb-0">穷人</h3>
+            <h3 class="headline">穷人</h3>
             <h4>
               人口
               <kbd>
@@ -27,6 +27,7 @@
             </h4>
             <h4>
               资产
+              <br>
               <kbd>
                 <animate-number
                   ref="num1"
@@ -40,19 +41,15 @@
             </h4>
           </div>
         </v-card-title>
-        <v-card-text>{{ poor }}</v-card-text>
-        <!-- <v-card-actions>
-                <v-btn flat color="orange">人口问题</v-btn>
-                <v-btn flat color="orange">贫富差距</v-btn>
-        </v-card-actions>-->
+        <v-card-text class="py-0">{{ poor }}</v-card-text>
       </v-card>
     </v-flex>
     <v-flex md4 xs4>
       <v-card>
         <v-img src="http://img.xserver.top/wenming_middle4.jpg" aspect-ratio="2.5" max-height="100"></v-img>
-        <v-card-title primary-title>
+        <v-card-title primary-title class="py-2">
           <div>
-            <h3 class="headline mb-0">中产</h3>
+            <h3 class="headline">中产</h3>
             <h4>
               人口
               <kbd>
@@ -61,6 +58,7 @@
             </h4>
             <h4>
               资产
+              <br>
               <kbd>
                 <animate-number
                   ref="num3"
@@ -74,19 +72,15 @@
             </h4>
           </div>
         </v-card-title>
-        <v-card-text>{{ middle }}</v-card-text>
-        <!-- <v-card-actions>
-                <v-btn flat color="orange">人口问题</v-btn>
-                <v-btn flat color="orange">贫富差距</v-btn>
-        </v-card-actions>-->
+        <v-card-text class="py-0">{{ middle }}</v-card-text>
       </v-card>
     </v-flex>
     <v-flex md4 xs4>
       <v-card>
         <v-img src="http://img.xserver.top/wenming_rich4.jpg" aspect-ratio="2.5" max-height="100"></v-img>
-        <v-card-title primary-title>
+        <v-card-title primary-title class="py-2">
           <div>
-            <h3 class="headline mb-0">富人</h3>
+            <h3 class="headline">富人</h3>
             <h4>
               人口
               <kbd>
@@ -95,11 +89,12 @@
             </h4>
             <h4>
               资产
+              <br>
               <kbd>
                 <animate-number
                   ref="num5"
                   from="0"
-                  to="1000"
+                  to="10000"
                   duration="2000"
                   easing="easeInQuad"
                   :formatter="formatterAnimateNumber"
@@ -108,11 +103,7 @@
             </h4>
           </div>
         </v-card-title>
-        <v-card-text>{{ rich }}</v-card-text>
-        <!-- <v-card-actions>
-                <v-btn flat color="orange">人口问题</v-btn>
-                <v-btn flat color="orange">贫富差距</v-btn>
-        </v-card-actions>-->
+        <v-card-text class="py-0">{{ rich }}</v-card-text>
       </v-card>
     </v-flex>
   </v-layout>

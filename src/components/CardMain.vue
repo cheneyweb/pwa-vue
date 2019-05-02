@@ -1,5 +1,4 @@
 <template>
-  <!-- <v-card class="red" flat> -->
   <v-layout wrap>
     <v-flex md6 xs12>
       <v-img
@@ -16,11 +15,10 @@
           </v-layout>
         </v-container>
       </v-img>
-      <v-card-title primary-title pt-0>
+      <v-card-title primary-title class="py-2">
         <v-layout wrap>
           <v-flex>
             <v-layout wrap column>
-              <!-- <v-card  max-width="400" elevation-20> -->
               <v-flex xs12 pb-1>
                 <code>文明法则</code>
                 <span class="caption font-weight-bold">：穷中富相互结合，父母阶层越高，后代阶层越高</span>
@@ -38,19 +36,12 @@
                 <v-btn flat small outline color="brown">富人+富人=+2</v-btn>
                 <v-btn flat small outline color="brown">富人+中产=+1</v-btn>
                 <v-btn flat small outline color="brown">中产+中产= 0</v-btn>
-                <!-- <v-flex><code>富人+富人=+2</code></v-flex>
-                <v-flex><code>富人+中产=+1</code></v-flex>
-                <v-flex><code>中产+中产= 0</code></v-flex>-->
               </v-flex>
               <v-flex xs12 d-flex hidden-xs-only>
                 <v-btn flat small outline color="brown">富人+穷人= 0</v-btn>
                 <v-btn flat small outline color="brown">中产+穷人=-1</v-btn>
                 <v-btn flat small outline color="brown">穷人+穷人=-2</v-btn>
-                <!-- <v-flex><code>富人+穷人= 0</code></v-flex>
-                <v-flex><code>中产+穷人=-1</code></v-flex>
-                <v-flex><code>穷人+穷人=-2</code></v-flex>-->
               </v-flex>
-              <!-- </v-card> -->
             </v-layout>
           </v-flex>
           <v-flex>
@@ -68,6 +59,7 @@
                         to="100"
                         duration="2000"
                         easing="easeInQuad"
+                        :formatter="num=>{return `${parseInt(num)}代`}"
                       ></animate-number>
                     </kbd>
                   </v-list-tile-content>
@@ -82,6 +74,7 @@
                         to="1110"
                         duration="2000"
                         easing="easeInQuad"
+                        :formatter="num=>{return `${parseInt(num)}人`}"
                       ></animate-number>
                     </kbd>
                   </v-list-tile-content>
@@ -110,17 +103,12 @@
               </v-list>
             </v-card>
           </v-flex>
-          <!-- </v-flex> -->
         </v-layout>
       </v-card-title>
-      <v-card-text>
+      <v-card-text class="pt-0">
         <code>文明目标</code>
         <span class="caption font-weight-bold">：{{ tip }}</span>
       </v-card-text>
-      <!-- <v-card-actions>
-          <v-btn flat color="orange">人口问题</v-btn>
-          <v-btn flat color="orange">贫富差距</v-btn>
-      </v-card-actions>-->
     </v-flex>
     <v-flex md3 xs12>
       <canvas id="chart1" width="350" height="150"></canvas>
@@ -129,7 +117,6 @@
       <canvas id="chart2" width="375" height="150"></canvas>
     </v-flex>
   </v-layout>
-  <!-- </v-card> -->
 </template>
 
 <script>

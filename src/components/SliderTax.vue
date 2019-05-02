@@ -1,6 +1,6 @@
 <template>
   <v-card dark tile flat>
-    <v-subheader>【文明税收】</v-subheader>
+    <v-subheader>[文明税收]</v-subheader>
 
     <v-layout wrap>
       <v-flex md4 xs12>
