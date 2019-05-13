@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-bottom-nav :active.sync="bottomNav" :value="true" fixed>
+    <v-bottom-nav :active.sync="bottomNav" :value="true" height=50 fixed>
       <v-btn flat color="teal" to="home" @click="showFatherView(0)">
         <span>文明进程</span>
         <v-icon>history</v-icon>

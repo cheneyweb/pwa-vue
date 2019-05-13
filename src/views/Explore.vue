@@ -1,7 +1,7 @@
 <template>
   <v-layout row>
     <v-flex xs12>
-      <v-list subheader three-line>
+      <v-list subheader two-line>
         <v-subheader>外星文明</v-subheader>
         <v-list-tile v-for="item in items" :key="item.title" avatar ripple @click="diplomacy(item)">
           <v-list-tile-avatar>
