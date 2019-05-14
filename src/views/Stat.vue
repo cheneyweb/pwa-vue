@@ -1,5 +1,6 @@
 <template>
-  <div class="about">
+  <div>
+    <v-subheader>文明进程</v-subheader>
     <Timeline/>
   </div>
 </template>
