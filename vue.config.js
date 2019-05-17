@@ -3,7 +3,8 @@ module.exports = {
 
   pwa: {
     name: '我的文明',
-    msTileColor: '#4DBA87'
+    themeColor: '#FFFFFF',
+    msTileColor: '#FFFFFF'
   },
 
   configureWebpack: {
